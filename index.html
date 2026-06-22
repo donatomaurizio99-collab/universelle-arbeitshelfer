@@ -68,7 +68,14 @@
         .helper-context { color: var(--muted); font-size: .94rem; }
         .helper-context strong { color: var(--ink); }
         .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 8px; }
-        .badge { display: inline-flex; align-items: center; border: 1px solid #b8dcd6; background: #eef8f6; color: #11675d; border-radius: 999px; padding: 4px 8px; font-size: .78rem; font-weight: 700; line-height: 1.2; }
+        .badge { display: inline-flex; align-items: center; border: 1px solid #cfd8e3; background: #f6f8fb; color: var(--ink); border-radius: 999px; padding: 4px 8px; font-size: .78rem; font-weight: 700; line-height: 1.2; }
+        .badge--chat { background: #e6f4ea; border-color: #9cd2ab; color: #1d6b35; }
+        .badge--setup { background: #fff3df; border-color: #efd0a3; color: #8a5a12; }
+        .badge--cost { background: #fdecea; border-color: #f0bcb4; color: #9a3526; }
+        .badge-legend { border: 1px solid var(--line); border-radius: 8px; background: #fbfdff; padding: 13px 15px; margin: 14px 0; }
+        .badge-legend strong { display: block; margin-bottom: 9px; }
+        .legend-item { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px; align-items: start; margin: 8px 0; }
+        .legend-item p { margin: 1px 0 0; color: var(--muted); font-size: .94rem; }
         .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 14px; margin-top: 16px; }
         .timeline-card { border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: #fbfdff; }
         .timeline-head { display: flex; gap: 10px; align-items: baseline; margin-bottom: 8px; }
@@ -93,6 +100,7 @@
         @media (max-width: 760px) {
           .helper-row { grid-template-columns: 38px minmax(0, 1fr); }
           .helper-row .detail-link { grid-column: 2; width: max-content; }
+          .legend-item { grid-template-columns: 1fr; gap: 4px; }
           .timeline-grid { grid-template-columns: 1fr; }
         }
         @media print { nav { position: static; } section { box-shadow: none; break-inside: avoid; } }
@@ -510,7 +518,12 @@ Testaufgabe:
 </section>
 <section id="helferliste">
 <h2>11. Übersicht der 31 einzelnen Helfer</h2>
-<p>Die einzelnen Helfer sind nach Alltagssituationen geordnet. Öffne eine Gruppe, wenn sie zu deiner Situation passt. Die Übersicht nennt nur Anlass und Einsatzbereich; Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<p>Die einzelnen Helfer sind nach Alltagssituationen geordnet. Öffne eine Gruppe, wenn sie zu deiner Situation passt. Jeder Helfer ist gekennzeichnet, ob er direkt im Chat läuft, eine Einrichtung braucht oder Kosten verursachen kann. Genaue Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<div class="badge-legend"><strong>Kennzeichnungen</strong>
+<div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
+<div class="legend-item"><span class="badge badge--setup">Braucht Einrichtung</span><p>funktioniert erst mit einem Werkzeug, das zum Beispiel Dateien lesen oder schreiben, Programme ausführen oder externe Zugänge nutzen darf.</p></div>
+<div class="legend-item"><span class="badge badge--cost">Kosten möglich</span><p>nutzt möglicherweise einen externen Dienst. Meist geht es um kleine Beträge je Nutzung, die sich bei vielen Durchläufen summieren können.</p></div>
+</div>
 <div class="overview-groups">
 <details class="group-block" open>
 <summary><span>Material aufbereiten und nachschlagen</span><strong>5 Helfer</strong></summary>
@@ -519,7 +532,7 @@ Testaufgabe:
 <div class="number">01</div>
 <div>
 <h3>Bilder verlässlich erzeugen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn regelmäßig passende Bilder gebraucht werden und Bildwünsche sonst jedes Mal anders beschrieben werden.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Wenn Bilder mehrfach entstehen sollen oder ein einheitlicher Auftritt wichtig ist.</p>
 </div>
@@ -529,7 +542,7 @@ Testaufgabe:
 <div class="number">02</div>
 <div>
 <h3>Aktuelles sicher nachschlagen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn eine Antwort von heutigen Preisen, Terminen, Produktständen oder Nachrichten abhängt.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Immer dann, wenn Erinnerung veraltet sein könnte oder eine Entscheidung von aktuellen Angaben abhängt.</p>
 </div>
@@ -539,7 +552,7 @@ Testaufgabe:
 <div class="number">03</div>
 <div>
 <h3>Aufnahmen verschriftlichen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn ein Gespräch, Vortrag oder Video verstanden werden soll, ohne alles selbst mitzuschreiben.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei Besprechungen, Interviews, Vorträgen, Lernmaterial oder Rohmaterial für spätere Texte.</p>
 </div>
@@ -549,7 +562,7 @@ Testaufgabe:
 <div class="number">04</div>
 <div>
 <h3>Große Unterlagen handlich vorbereiten</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn lange Dokumente, Tabellen oder Folien zu unübersichtlich sind, um sie direkt auszuwerten.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei sehr langen Unterlagen oder mehreren Dateien, die gemeinsam verstanden werden müssen.</p>
 </div>
@@ -559,7 +572,7 @@ Testaufgabe:
 <div class="number">05</div>
 <div>
 <h3>Lange Antworten als Leseseite sichern</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn eine gute Antwort im Gesprächsverlauf verloren gehen würde oder sauber weitergegeben werden soll.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei Plänen, Vergleichen, Auswertungen, Anleitungen oder Entscheidungsgrundlagen.</p>
 </div>
@@ -573,7 +586,7 @@ Testaufgabe:
 <div class="number">06</div>
 <div>
 <h3>Gedanken sortieren</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn Notizen, Sprachnachrichten oder Einfälle wertvoll sein könnten, aber noch durcheinanderliegen.</p>
 <p class="helper-context"><strong>Ideal für:</strong> Nach spontanen Aufzeichnungen, kreativen Phasen oder Gesprächen mit vielen losen Gedanken.</p>
 </div>
@@ -583,7 +596,7 @@ Testaufgabe:
 <div class="number">07</div>
 <div>
 <h3>Besprechungen auswerten</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn nach einem Gespräch klar sein soll, was beschlossen wurde und wer was als Nächstes tut.</p>
 <p class="helper-context"><strong>Ideal für:</strong> Nach Besprechungen, Kundenterminen, Abstimmungen oder längeren Telefonaten.</p>
 </div>
@@ -593,7 +606,7 @@ Testaufgabe:
 <div class="number">08</div>
 <div>
 <h3>Wochenänderungen erkennen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn ein Thema regelmäßig beobachtet wird und nur echte Veränderungen interessieren.</p>
 <p class="helper-context"><strong>Ideal für:</strong> Bei Marktbeobachtung, Projektständen, Produktänderungen oder laufenden Themenlisten.</p>
 </div>
@@ -603,7 +616,7 @@ Testaufgabe:
 <div class="number">09</div>
 <div>
 <h3>Annahmen prüfen</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn ein Plan überzeugend klingt, aber möglicherweise auf unbewiesenen Voraussetzungen steht.</p>
 <p class="helper-context"><strong>Ideal für:</strong> Vor Entscheidungen, Strategiepapieren, Angeboten, Zeitplänen oder größeren Änderungen.</p>
 </div>
@@ -613,7 +626,7 @@ Testaufgabe:
 <div class="number">10</div>
 <div>
 <h3>Lesepaket bauen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn mehrere Unterlagen gemeinsam gelesen und verstanden werden sollen.</p>
 <p class="helper-context"><strong>Ideal für:</strong> Vor Freigaben, Übergaben, Einarbeitung, Recherche oder gemeinsamen Entscheidungen.</p>
 </div>
@@ -627,7 +640,7 @@ Testaufgabe:
 <div class="number">11</div>
 <div>
 <h3>Eigene Schreibweise bewahren</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn Texte zwar schneller entstehen sollen, aber weiterhin nach der eigenen Person klingen müssen.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei wiederkehrenden Mails, Artikeln, Beiträgen, Angeboten oder persönlichen Texten.</p>
 </div>
@@ -637,7 +650,7 @@ Testaufgabe:
 <div class="number">12</div>
 <div>
 <h3>Neuigkeit einordnen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn eine Veröffentlichung oder Änderung schnell verständlich erklärt werden soll.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei neuen Produkten, Regeln, Terminen, Angeboten oder öffentlichen Ankündigungen.</p>
 </div>
@@ -647,7 +660,7 @@ Testaufgabe:
 <div class="number">13</div>
 <div>
 <h3>Für passende Zielgruppe schreiben</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn ein Text für bestimmte Leser zu schwer, zu knapp oder zu allgemein ist.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei Kunden, Team, Öffentlichkeit, Einsteigern, Entscheidern oder sehr gemischten Lesern.</p>
 </div>
@@ -657,7 +670,7 @@ Testaufgabe:
 <div class="number">14</div>
 <div>
 <h3>Bildwünsche im eigenen Stil beschreiben</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn Bilder wiedererkennbar wirken sollen und nicht jedes Mal anders aussehen dürfen.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei Serienbildern, Beitragsgrafiken, Vorschaubildern, Präsentationen oder Markenmaterial.</p>
 </div>
@@ -671,7 +684,7 @@ Testaufgabe:
 <div class="number">15</div>
 <div>
 <h3>Gutes Aussehen sichern</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn eine Seite oder ein Dokument nicht nur funktionieren, sondern auch sauber wirken soll.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Vor Veröffentlichung, Versand, Präsentation oder Übergabe an andere.</p>
 </div>
@@ -681,7 +694,7 @@ Testaufgabe:
 <div class="number">16</div>
 <div>
 <h3>Eigene Seite veröffentlichen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn eine fertige Seite aus dem eigenen Rechner heraus für andere erreichbar werden soll.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Bei Portfolios, Ankündigungen, Projektseiten, Berichten oder einfachen Veröffentlichungen.</p>
 </div>
@@ -691,7 +704,7 @@ Testaufgabe:
 <div class="number">17</div>
 <div>
 <h3>Bildvarianten vergleichen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn mehrere Bildvorschläge beurteilt werden sollen, ohne sich vom ersten Eindruck täuschen zu lassen.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Bei Motivsuche, Stilentscheidungen, Auswahl für Kampagnen oder wiederkehrenden Bildaufgaben.</p>
 </div>
@@ -701,7 +714,7 @@ Testaufgabe:
 <div class="number">18</div>
 <div>
 <h3>Texte bebildern</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn ein längerer Text durch passende Bilder verständlicher oder ansprechender werden soll.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Bei Artikeln, Berichten, Lernmaterial, Beitragsserien oder Präsentationen.</p>
 </div>
@@ -715,7 +728,7 @@ Testaufgabe:
 <div class="number">19</div>
 <div>
 <h3>Gesprochenes kürzen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn lange Aufnahmen in eine klare, hörbare Erzählfassung gebracht werden sollen.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei Interviews, Erklärvideos, Vorträgen, Sprachnotizen oder Gesprächsaufnahmen.</p>
 </div>
@@ -725,7 +738,7 @@ Testaufgabe:
 <div class="number">20</div>
 <div>
 <h3>Zusatzbilder planen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn ein reines Sprechvideo durch passende Einblendungen verständlicher werden soll.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Bei Lernvideos, Präsentationen, Produktvorstellungen oder längeren Erklärungen.</p>
 </div>
@@ -735,7 +748,7 @@ Testaufgabe:
 <div class="number">21</div>
 <div>
 <h3>Schnittarbeit vorbereiten</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn aus Material und Notizen ein klarer Plan für die weitere Videobearbeitung entstehen soll.</p>
 <p class="helper-context"><strong>Einsatzbereich:</strong> Vor der Endbearbeitung, besonders wenn mehrere Personen beteiligt sind.</p>
 </div>
@@ -749,7 +762,7 @@ Testaufgabe:
 <div class="number">22</div>
 <div>
 <h3>Prüfplan erstellen</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn nach einer Änderung klar sein soll, was kontrolliert werden muss.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Nach Änderungen an Seiten, Dokumenten, Abläufen, Formularen oder wiederkehrenden Aufgaben.</p>
 </div>
@@ -759,7 +772,7 @@ Testaufgabe:
 <div class="number">23</div>
 <div>
 <h3>Prüfwissen merken</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn wertvolle Prüferfahrungen sonst nach einer Arbeitssitzung verloren gehen.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Nach wiederholten Prüfungen oder wenn eine Aufgabe später erneut geprüft werden soll.</p>
 </div>
@@ -769,7 +782,7 @@ Testaufgabe:
 <div class="number">24</div>
 <div>
 <h3>Seiten im echten Gebrauch prüfen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Wenn eine Seite nicht nur optisch, sondern im tatsächlichen Nutzen überprüft werden soll.</p>
 <p class="helper-context"><strong>Optimal bei:</strong> Vor Veröffentlichung, nach Änderungen oder bei Beschwerden über eine Seite.</p>
 </div>
@@ -783,7 +796,7 @@ Testaufgabe:
 <div class="number">25</div>
 <div>
 <h3>Zielauftrag erstellen</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn ein Wunsch zu vage ist und der digitale Helfer sonst in die falsche Richtung arbeiten würde.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Fast immer vor größeren Arbeiten oder wenn das Ergebnis wirklich stimmen muss.</p>
 </div>
@@ -793,7 +806,7 @@ Testaufgabe:
 <div class="number">26</div>
 <div>
 <h3>Arbeit sichtbar übergeben</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn eine Aufgabe weitergegeben wird und trotzdem nachvollziehbar bleiben soll.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei längeren Arbeiten, mehreren Beteiligten oder wenn jemand anders übernehmen soll.</p>
 </div>
@@ -803,7 +816,7 @@ Testaufgabe:
 <div class="number">27</div>
 <div>
 <h3>Sitzungen ordnen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn mehrere Gespräche oder Aufgaben parallel laufen und der Überblick verloren geht.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei mehreren parallelen Themen, längeren Projekten oder wiederholten Unterbrechungen.</p>
 </div>
@@ -813,7 +826,7 @@ Testaufgabe:
 <div class="number">28</div>
 <div>
 <h3>Eigene Änderungen besonders prüfen</h3>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wenn eine Änderung von derselben Person oder demselben Helfer erstellt und geprüft werden soll.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Vor Übernahme wichtiger Texte, Seiten, Abläufe oder Entscheidungen ohne zweites Augenpaar.</p>
 </div>
@@ -823,7 +836,7 @@ Testaufgabe:
 <div class="number">29</div>
 <div>
 <h3>Beteiligte informieren</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn nach erledigter Arbeit eine klare Rückmeldung an andere nötig ist.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Nach Abschluss, Teilabschluss, Blockade oder wichtiger Änderung.</p>
 </div>
@@ -833,7 +846,7 @@ Testaufgabe:
 <div class="number">30</div>
 <div>
 <h3>Aus Wiederholung lernen</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn eine gelungene Vorgehensweise später wieder nutzbar sein soll.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Nach mehreren ähnlichen Aufgaben oder wenn eine Lösung spürbar Zeit gespart hat.</p>
 </div>
@@ -843,7 +856,7 @@ Testaufgabe:
 <div class="number">31</div>
 <div>
 <h3>Helfersystem entwerfen</h3>
-<div class="badge-row"><span class="badge">Direkt im Chat nutzbar</span></div>
+<div class="badge-row"><span class="badge badge--chat">Direkt im Chat nutzbar</span></div>
 <p>Wenn mehrere einzelne Helfer zusammenarbeiten sollen, ohne sich gegenseitig zu stören.</p>
 <p class="helper-context"><strong>Anwendungsfall:</strong> Bei größeren Vorhaben mit mehreren Schritten, Beteiligten oder Risiken.</p>
 </div>
@@ -855,14 +868,19 @@ Testaufgabe:
 </section>
 <section id="ablaufkarten">
 <h2>12. Übersicht der 7 größeren Ablaufpläne</h2>
-<p>Die folgenden größeren Abläufe verbinden mehrere einzelne Helfer. Die Übersicht zeigt Zweck, grobe Stationen und den wichtigsten Freigabepunkt; Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<p>Die folgenden größeren Abläufe verbinden mehrere einzelne Helfer. Auch hier zeigen die Kennzeichnungen, ob vorher Einrichtung oder mögliche Kosten zu beachten sind. Die Übersicht nennt Zweck, grobe Stationen und den wichtigsten Freigabepunkt; Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<div class="badge-legend"><strong>Kennzeichnungen</strong>
+<div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
+<div class="legend-item"><span class="badge badge--setup">Braucht Einrichtung</span><p>funktioniert erst mit einem Werkzeug, das zum Beispiel Dateien lesen oder schreiben, Programme ausführen oder externe Zugänge nutzen darf.</p></div>
+<div class="legend-item"><span class="badge badge--cost">Kosten möglich</span><p>nutzt möglicherweise einen externen Dienst. Meist geht es um kleine Beträge je Nutzung, die sich bei vielen Durchläufen summieren können.</p></div>
+</div>
 <div class="timeline-grid">
 <article class="timeline-card">
 <div class="timeline-head">
 <span class="number">01</span>
 <h3>Vom gesprochenen Gedanken zur veröffentlichten Seite</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Eine eingesprochene Idee wird verschriftlicht, sortiert, in eigener Sprache ausgearbeitet und als Seite veröffentlicht.</p>
 <ol class="stepper">
 <li>Aufnahme verschriftlichen</li>
@@ -880,7 +898,7 @@ Testaufgabe:
 <span class="number">02</span>
 <h3>Neuigkeit am selben Tag einordnen</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Eine neue Entwicklung wird recherchiert, eingeordnet, bebildert, veröffentlicht und an Beteiligte gemeldet.</p>
 <ol class="stepper">
 <li>Aktuellen Stand nachschlagen</li>
@@ -898,7 +916,7 @@ Testaufgabe:
 <span class="number">03</span>
 <h3>Videomaterial zur prüfbaren Fassung bringen</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Rohes Videomaterial wird verschriftlicht, gekürzt, ergänzt und für die Endbearbeitung vorbereitet.</p>
 <ol class="stepper">
 <li>Aufnahme verschriftlichen</li>
@@ -916,7 +934,7 @@ Testaufgabe:
 <span class="number">04</span>
 <h3>Eine Seite veröffentlichen, der man vertrauen kann</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Eine Seite wird gebaut, veröffentlicht, in echten Ansichten geprüft und die Prüferfahrung gesichert.</p>
 <ol class="stepper">
 <li>Inhalt ordnen</li>
@@ -934,7 +952,7 @@ Testaufgabe:
 <span class="number">05</span>
 <h3>Belastbare Recherche mit Belegkette</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span><span class="badge">Kosten möglich</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span><span class="badge badge--cost">Kosten möglich</span></div>
 <p>Viele Quellen werden vorbereitet, ergänzt, kritisch geprüft und als geführtes Lesepaket aufbereitet.</p>
 <ol class="stepper">
 <li>Unterlagen sammeln</li>
@@ -951,7 +969,7 @@ Testaufgabe:
 <span class="number">06</span>
 <h3>Aufgaben übergeben und prüfen</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Mehrere Arbeiten werden klar beauftragt, sichtbar verfolgt, geprüft und an Beteiligte gemeldet.</p>
 <ol class="stepper">
 <li>Zielauftrag klären</li>
@@ -968,7 +986,7 @@ Testaufgabe:
 <span class="number">07</span>
 <h3>Aus jeder Arbeitsrunde lernen</h3>
 </div>
-<div class="badge-row"><span class="badge">Braucht Einrichtung</span></div>
+<div class="badge-row"><span class="badge badge--setup">Braucht Einrichtung</span></div>
 <p>Wiederkehrende Erkenntnisse werden gesammelt und in bessere künftige Routinen übersetzt.</p>
 <ol class="stepper">
 <li>Abschluss prüfen</li>
