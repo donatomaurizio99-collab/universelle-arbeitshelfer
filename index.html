@@ -45,6 +45,12 @@
         .prompt-box pre, .start-box pre { margin: 8px 0 0; white-space: pre-wrap; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: #ffffff; border: 1px solid var(--line); border-radius: 8px; padding: 12px; overflow-x: auto; user-select: all; }
         .start-box { border: 1px solid #b8dcd6; background: var(--accent-soft); border-radius: 8px; padding: 14px; margin: 14px 0; }
         .start-box strong { display: block; color: var(--accent); margin-bottom: 5px; }
+        .copy-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+        .copy-head strong { margin-bottom: 0; }
+        .copy-button { appearance: none; border: 1px solid #9fcfc8; background: #ffffff; color: var(--accent); border-radius: 999px; padding: 6px 11px; font: inherit; font-size: .86rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+        .copy-button:hover { border-color: var(--accent); }
+        .copy-button.is-copied { background: #e6f4ea; border-color: #9cd2ab; color: #1d6b35; }
+        .copy-button.is-error { background: #fdecea; border-color: #f0bcb4; color: #9a3526; }
         .card span { color: var(--muted); display: block; margin-top: 6px; }
         .note { border: 1px solid var(--warn-line); border-left: 5px solid #d89134; background: var(--warn-soft); border-radius: 8px; padding: 13px 15px; margin-top: 13px; }
         .note strong { display: block; margin-bottom: 8px; }
@@ -91,9 +97,15 @@
         .detail-article { scroll-margin-top: 78px; border-top: 1px solid var(--line); padding-top: 22px; margin-top: 22px; }
         .detail-article h3 { color: var(--accent); }
         .detail-article .meta { color: var(--muted); font-size: .94rem; }
+        .quick-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; margin: 13px 0 16px; }
+        .quick-fact { border: 1px solid var(--line); border-radius: 8px; background: #fbfdff; padding: 10px 11px; }
+        .quick-fact strong { display: block; color: var(--accent); margin-bottom: 4px; font-size: .86rem; }
+        .quick-fact span { display: block; color: var(--muted); font-size: .9rem; }
         .detail-article .source-label { margin-top: 16px; margin-bottom: 4px; color: var(--accent); font-weight: 700; }
         .detail-article pre { white-space: pre-wrap; background: #0f172a; color: #eef6ff; border-radius: 8px; padding: 14px; overflow-x: auto; }
+        .detail-article .start-box pre { font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: #ffffff; border: 1px solid var(--line); }
         .detail-article code, .detail-article pre { font-family: Consolas, "Courier New", monospace; }
+        .detail-article .start-box pre { font-family: Arial, Helvetica, sans-serif; }
         .toplink { margin-top: 18px; }
         .toplink a { color: var(--accent); }
         footer { color: var(--muted); padding: 0 24px 34px; text-align: center; }
@@ -101,6 +113,7 @@
           .helper-row { grid-template-columns: 38px minmax(0, 1fr); }
           .helper-row .detail-link { grid-column: 2; width: max-content; }
           .legend-item { grid-template-columns: 1fr; gap: 4px; }
+          .copy-head { align-items: flex-start; flex-direction: column; }
           .timeline-grid { grid-template-columns: 1fr; }
         }
         @media print { nav { position: static; } section { box-shadow: none; break-inside: avoid; } }
@@ -258,7 +271,7 @@
 <h3>Beispiel: E-Mail an die Hausverwaltung</h3>
 <div class="box"><strong>Vage</strong>Schreib mir eine E-Mail an die Hausverwaltung.</div>
 <div class="box"><strong>Besser</strong>Erstelle eine freundliche, kurze E-Mail an die Hausverwaltung. Ziel: Ich möchte um einen Reparaturtermin bitten, weil der Wasserhahn in der Küche seit Montag tropft. Ton: sachlich und höflich. Nicht-Ziele: keine Drohungen, keine erfundenen Details, keine langen Erklärungen. Frage nach, wenn Adresse, gewünschte Zeitfenster oder Kontaktdaten fehlen. Fertig ist der Entwurf, wenn Betreff, Anrede, kurzer Sachverhalt, Bitte um Termin und Gruß enthalten sind.</div>
-<div class="box prompt-box"><strong>Starttext zum Kopieren</strong><pre>Hilf mir bitte, aus folgendem Wunsch einen klaren Zielauftrag (prompt) zu machen.
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Hilf mir bitte, aus folgendem Wunsch einen klaren Zielauftrag (prompt) zu machen.
 
 Wichtig:
 Bitte erledige den Wunsch noch nicht.
@@ -289,7 +302,7 @@ Mein Wunsch:
 <h3>Beispiel: wöchentliche Rechnungs-Mails</h3>
 <div class="box"><strong>Vage</strong>Hilf mir jede Woche mit meinen Rechnungs-Mails.</div>
 <div class="box"><strong>Besser</strong>Entwickle eine feste Arbeitsweise für wöchentliche Rechnungs-Mails. Sie soll nur genutzt werden, wenn mehrere Rechnungen gesammelt vorliegen. Sie soll nicht genutzt werden, wenn Mahnungen, Vertragsänderungen oder unklare Beträge enthalten sind. Ergebnis: eine kurze Liste mit Absender, Betrag, Fälligkeit, offener Frage und Vorschlag für die nächste Handlung. Stoppe, wenn personenbezogene Daten unnötig offengelegt würden oder echte Zahlungsdaten gebraucht werden.</div>
-<div class="box prompt-box"><strong>Starttext zum Kopieren</strong><pre>Ich glaube, diese Aufgabe kommt öfter vor und ich möchte prüfen, ob daraus eine feste Arbeitsweise (skill) werden sollte.
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich glaube, diese Aufgabe kommt öfter vor und ich möchte prüfen, ob daraus eine feste Arbeitsweise (skill) werden sollte.
 
 Wichtig:
 Bitte erledige die Aufgabe noch nicht.
@@ -328,7 +341,7 @@ Meine wiederkehrende Aufgabe:
 <h3>Beispiel: Sprachnotiz zur veröffentlichten Notiz</h3>
 <div class="box"><strong>Vage</strong>Mach aus meiner Sprachnotiz eine fertige Seite.</div>
 <div class="box"><strong>Besser</strong>Ordne den Ablauf in Stationen: Aufnahme verschriftlichen, Gedanken sortieren, eine Idee auswählen, Text in eigener Sprache ausarbeiten, Seite bauen, vor Veröffentlichung prüfen. Nach der Ideenauswahl und direkt vor der Veröffentlichung muss ein Mensch freigeben. Stoppe, wenn die Aufnahme schlecht verständlich ist, private Angaben enthält oder eine Veröffentlichung ohne klares Ja geplant wäre.</div>
-<div class="box prompt-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte einen wiederkehrenden Ablauf sicher ordnen und prüfen, ob daraus ein Ablaufplan (runbook) werden sollte.
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte einen wiederkehrenden Ablauf sicher ordnen und prüfen, ob daraus ein Ablaufplan (runbook) werden sollte.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -439,7 +452,7 @@ Mein Vorhaben:
 </tr>
 </tbody></table>
 <div class="note"><strong>Wichtig</strong><p>Du musst die Rückfragen nicht extra auslösen. Sie kommen nach dem Absenden, wenn der Starttext klar genug ist. Für alltägliche Text-Aufgaben wie E-Mail, Brief oder Zusammenfassung kannst du den fertigen Zielauftrag direkt im normalen Chat weiterverwenden. Für Aufgaben, bei denen ein Helfer selbst Dateien ändert, Befehle ausführt, veröffentlicht, sendet oder löscht, brauchst du ein entsprechend ausgestattetes Werkzeug und dein ausdrückliches Ja. Nutze zum ersten Test eine ungefährliche Beispielaufgabe und kopiere keine Passwörter, Zahlungsdaten oder privaten Unterlagen hinein.</p></div>
-<div class="box prompt-box"><strong>Kurzform des Ablaufs</strong><pre>HTML öffnen -&gt; passenden Helfer suchen -&gt; Starttext kopieren -&gt; neuen Chat öffnen -&gt; Starttext einfügen -&gt; eigenen Wunsch ergänzen -&gt; absenden -&gt; Rückfragen beantworten -&gt; fertiges Ergebnis prüfen.</pre></div>
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Kurzform des Ablaufs</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>HTML öffnen -&gt; passenden Helfer suchen -&gt; Starttext kopieren -&gt; neuen Chat öffnen -&gt; Starttext einfügen -&gt; eigenen Wunsch ergänzen -&gt; absenden -&gt; Rückfragen beantworten -&gt; fertiges Ergebnis prüfen.</pre></div>
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="dauerhaft-speichern">
@@ -491,7 +504,7 @@ Mein Vorhaben:
 <li>Nach jeder größeren Änderung erneut mit einer harmlosen Aufgabe testen.</li>
 </ul>
 <div class="note"><strong>Wichtig</strong><p>Wenn eine Plattform nach Fähigkeiten fragt, aktiviere nur, was der Helfer wirklich braucht. Ein Text-Helfer braucht meist keine Datei-, Veröffentlichungs-, Sende- oder Löschrechte.</p></div>
-<div class="box prompt-box"><strong>Vorlage zum dauerhaften Speichern</strong><pre>Name:
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Vorlage zum dauerhaften Speichern</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Name:
 [Name des Helfers]
 
 Wann verwenden:
@@ -1063,7 +1076,8 @@ Testaufgabe:
 <h3>Bilder verlässlich erzeugen</h3>
 <p class="meta">Englischer Name: <strong>Image Generation Gateway</strong></p>
 <p class="meta">Gruppe: Material aufbereiten und nachschlagen</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Bilder verlässlich erzeugen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht technische Einrichtung: Bilddienst, Zugang, sichere Ablage und Freigabe vor Veröffentlichung.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich, wenn du regelmäßig Bilder erzeugst oder mehrere Abläufe dieselbe Bildlogik nutzen.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Bilder verlässlich erzeugen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1104,7 +1118,8 @@ Meine Aufgabe:
 <h3>Aktuelles sicher nachschlagen</h3>
 <p class="meta">Englischer Name: <strong>Current-Information Search</strong></p>
 <p class="meta">Gruppe: Material aufbereiten und nachschlagen</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Aktuelles sicher nachschlagen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Zugriff auf aktuelle Quellen; für belastbare Nutzung kann technische Einrichtung nötig sein.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich für Preise, Termine, Nachrichten und Produktstände. Nicht nötig bei stabilen Grundsatzfragen.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Aktuelles sicher nachschlagen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1145,7 +1160,8 @@ Meine Aufgabe:
 <h3>Aufnahmen verschriftlichen</h3>
 <p class="meta">Englischer Name: <strong>Media Transcription</strong></p>
 <p class="meta">Gruppe: Material aufbereiten und nachschlagen</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Aufnahmen verschriftlichen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht eine Aufnahme; je nach Umgebung zusätzlich einen Dienst oder ein Programm zur Verschriftlichung.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich bei Meetings, Interviews und Vorträgen. Für kurze Notizen reicht oft eine einfache Zusammenfassung.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Aufnahmen verschriftlichen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1186,7 +1202,8 @@ Meine Aufgabe:
 <h3>Große Unterlagen handlich vorbereiten</h3>
 <p class="meta">Englischer Name: <strong>Heavy File Ingestion</strong></p>
 <p class="meta">Gruppe: Material aufbereiten und nachschlagen</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Große Unterlagen handlich vorbereiten“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Zugriff auf die Unterlagen und eine Arbeitsumgebung, die Dateien lesen oder zerlegen darf.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei langen PDFs, Tabellen oder vielen Dateien. Für kurze Dokumente ist der Aufwand meist unnötig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Große Unterlagen handlich vorbereiten“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1227,7 +1244,8 @@ Meine Aufgabe:
 <h3>Lange Antworten als Leseseite sichern</h3>
 <p class="meta">Englischer Name: <strong>HTML Artifact Builder</strong></p>
 <p class="meta">Gruppe: Material aufbereiten und nachschlagen</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Lange Antworten als Leseseite sichern“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht keinen bestimmten Anbieter, aber eine Ablage für die erzeugte Seite.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt für lange Pläne, Vergleiche oder Anleitungen. Für kurze Antworten reicht der normale Gesprächsverlauf.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Lange Antworten als Leseseite sichern“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1268,7 +1286,8 @@ Meine Aufgabe:
 <h3>Gedanken sortieren</h3>
 <p class="meta">Englischer Name: <strong>Brain Dump Processor</strong></p>
 <p class="meta">Gruppe: Denken und Auswerten</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Gedanken sortieren“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Reiner Text-Helfer; Sprachnotizen müssen vorher verschriftlicht werden.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt bei chaotischen Notizen oder Diktaten. Weniger nötig bei bereits sauber strukturierten Stichpunkten.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Gedanken sortieren“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1309,7 +1328,8 @@ Meine Aufgabe:
 <h3>Besprechungen auswerten</h3>
 <p class="meta">Englischer Name: <strong>Meeting Synthesis</strong></p>
 <p class="meta">Gruppe: Denken und Auswerten</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Besprechungen auswerten“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Mitschrift, Erinnerung oder verschriftlichte Aufnahme.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Kosten entstehen nur, wenn du von einer Audioaufnahme startest und sie erst verschriftlichen lässt. Eine fertige Mitschrift lässt sich direkt im Chat auswerten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich nach längeren Abstimmungen. Für kurze Zwei-Satz-Klärungen wäre es zu viel Struktur.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Besprechungen auswerten“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1350,7 +1370,8 @@ Meine Aufgabe:
 <h3>Wochenänderungen erkennen</h3>
 <p class="meta">Englischer Name: <strong>Weekly Signal Diff</strong></p>
 <p class="meta">Gruppe: Denken und Auswerten</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Wochenänderungen erkennen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht einen alten Stand und einen neuen Stand zum Vergleich.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt für laufende Beobachtung. Nicht geeignet, wenn es keinen verlässlichen Vergleichsstand gibt.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Wochenänderungen erkennen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1391,7 +1412,8 @@ Meine Aufgabe:
 <h3>Annahmen prüfen</h3>
 <p class="meta">Englischer Name: <strong>Assumption Checker</strong></p>
 <p class="meta">Gruppe: Denken und Auswerten</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Annahmen prüfen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Reiner Text-Helfer; braucht aber einen Plan oder eine Aussage, die geprüft werden kann.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll vor Entscheidungen mit Folgen. Für harmlose Kleinigkeiten reicht oft ein kurzer Plausibilitätscheck.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Annahmen prüfen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1432,7 +1454,8 @@ Meine Aufgabe:
 <h3>Lesepaket bauen</h3>
 <p class="meta">Englischer Name: <strong>Reading Pack Builder</strong></p>
 <p class="meta">Gruppe: Denken und Auswerten</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Lesepaket bauen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht mehrere Unterlagen und eine klare Zielgruppe für die Lesereihenfolge.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll für Übergaben, Freigaben und Einarbeitung. Für ein einzelnes Dokument meist unnötig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Lesepaket bauen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1473,7 +1496,8 @@ Meine Aufgabe:
 <h3>Eigene Schreibweise bewahren</h3>
 <p class="meta">Englischer Name: <strong>Personal Voice Skill</strong></p>
 <p class="meta">Gruppe: Schreiben und Stimme</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Eigene Schreibweise bewahren“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht gute eigene Beispieltexte und klare Grenzen für Ton und Stil.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich bei wiederkehrenden Texten in eigener Stimme. Nicht nötig für rein sachliche Kurznotizen.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Eigene Schreibweise bewahren“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1514,7 +1538,8 @@ Meine Aufgabe:
 <h3>Neuigkeit einordnen</h3>
 <p class="meta">Englischer Name: <strong>New Release Briefing</strong></p>
 <p class="meta">Gruppe: Schreiben und Stimme</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Neuigkeit einordnen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht aktuelle Quellen und klare Trennung zwischen Fakt und Einschätzung.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich bei wichtigen Neuerungen. Nicht geeignet, wenn nur eine schnelle unbelegte Meinung gesucht wird.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Neuigkeit einordnen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1555,7 +1580,8 @@ Meine Aufgabe:
 <h3>Für passende Zielgruppe schreiben</h3>
 <p class="meta">Englischer Name: <strong>Audience-Calibrated Content System</strong></p>
 <p class="meta">Gruppe: Schreiben und Stimme</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Für passende Zielgruppe schreiben“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht eine klar benannte Zielgruppe.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei wiederkehrenden Texten für dieselbe Zielgruppe. Weniger sinnvoll bei völlig wechselndem Publikum.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Für passende Zielgruppe schreiben“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1596,7 +1622,8 @@ Meine Aufgabe:
 <h3>Bildwünsche im eigenen Stil beschreiben</h3>
 <p class="meta">Englischer Name: <strong>Branded Image Prompting Guide</strong></p>
 <p class="meta">Gruppe: Schreiben und Stimme</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Bildwünsche im eigenen Stil beschreiben“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Stilvorgaben und gegebenenfalls einen Bilddienst; Rechte vorher klären.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich für wiederkehrende Bildserien. Für ein einzelnes spontanes Bild reicht meist ein normaler Bildwunsch.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Bildwünsche im eigenen Stil beschreiben“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1637,7 +1664,8 @@ Meine Aufgabe:
 <h3>Gutes Aussehen sichern</h3>
 <p class="meta">Englischer Name: <strong>Frontend Taste System</strong></p>
 <p class="meta">Gruppe: Seiten und Veröffentlichung</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Gutes Aussehen sichern“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht ein sichtbares Ergebnis, das geprüft werden kann.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt vor Veröffentlichung oder Übergabe. Nicht nötig, wenn nur ein interner Rohentwurf entsteht.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Gutes Aussehen sichern“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1678,7 +1706,8 @@ Meine Aufgabe:
 <h3>Eigene Seite veröffentlichen</h3>
 <p class="meta">Englischer Name: <strong>Personal Site Publisher</strong></p>
 <p class="meta">Gruppe: Seiten und Veröffentlichung</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Eigene Seite veröffentlichen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht technische Veröffentlichung: Adresse, Zugang und Ablage beim Webseiten-Anbieter.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt bei eigener Webseite und wiederkehrender Veröffentlichung. Nicht geeignet für reine Chat- oder Dokumentarbeit.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Eigene Seite veröffentlichen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1720,7 +1749,8 @@ Meine Aufgabe:
 <h3>Bildvarianten vergleichen</h3>
 <p class="meta">Englischer Name: <strong>Image Model Comparison Arena</strong></p>
 <p class="meta">Gruppe: Seiten und Veröffentlichung</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Bildvarianten vergleichen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht mehrere Bildvarianten und klare Vergleichskriterien.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich vor Stil- oder Anbieterentscheidungen. Für eine schnelle Einzelgrafik ist es meist zu aufwendig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Bildvarianten vergleichen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1761,7 +1791,8 @@ Meine Aufgabe:
 <h3>Texte bebildern</h3>
 <p class="meta">Englischer Name: <strong>Essay Illustration Gallery</strong></p>
 <p class="meta">Gruppe: Seiten und Veröffentlichung</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Texte bebildern“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Text, Bildrechte und je nach Umsetzung einen Bilddienst.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei längeren Artikeln oder Lernmaterial. Nicht jeder kurze Text braucht Bilder.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Texte bebildern“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1802,7 +1833,8 @@ Meine Aufgabe:
 <h3>Gesprochenes kürzen</h3>
 <p class="meta">Englischer Name: <strong>Radio Edit</strong></p>
 <p class="meta">Gruppe: Video und Medien</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Gesprochenes kürzen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Aufnahme oder Abschrift und eine Freigabe für inhaltliche Kürzungen.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt bei langen Interviews oder Erklärungen. Für sehr kurze Aufnahmen reicht oft eine normale Zusammenfassung.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Gesprochenes kürzen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1843,7 +1875,8 @@ Meine Aufgabe:
 <h3>Zusatzbilder planen</h3>
 <p class="meta">Englischer Name: <strong>B-Roll Pipeline</strong></p>
 <p class="meta">Gruppe: Video und Medien</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Zusatzbilder planen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Video- oder Textgrundlage und klare Rechte für eingeblendetes Material.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll für längere Erklärvideos. Nicht nötig, wenn das Video bewusst schlicht bleiben soll.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Zusatzbilder planen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1884,7 +1917,8 @@ Meine Aufgabe:
 <h3>Schnittarbeit vorbereiten</h3>
 <p class="meta">Englischer Name: <strong>AI Editing Assistant (NLE Integration)</strong></p>
 <p class="meta">Gruppe: Video und Medien</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Schnittarbeit vorbereiten“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Rohmaterial, Zeitstellen und ein Schnittziel.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll, wenn Videobearbeitung wiederkehrt oder übergeben wird. Für einen kurzen Clip reicht oft eine Notiz.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Schnittarbeit vorbereiten“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1925,7 +1959,8 @@ Meine Aufgabe:
 <h3>Prüfplan erstellen</h3>
 <p class="meta">Englischer Name: <strong>Testing Runbook Creator</strong></p>
 <p class="meta">Gruppe: Prüfen und Qualität sichern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Prüfplan erstellen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht eine konkrete Änderung oder ein prüfbares Ergebnis.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei Änderungen mit Fehlerfolgen. Für winzige Textkorrekturen genügt meist eine Sichtprüfung.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Prüfplan erstellen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -1966,7 +2001,8 @@ Meine Aufgabe:
 <h3>Prüfwissen merken</h3>
 <p class="meta">Englischer Name: <strong>Page Testing Memory</strong></p>
 <p class="meta">Gruppe: Prüfen und Qualität sichern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Prüfwissen merken“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht wiederkehrende Prüferfahrungen; keine geheimen Daten speichern.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich, wenn ähnliche Prüfungen wiederkommen. Nicht geeignet für einmalige sensible Einzelfälle.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Prüfwissen merken“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2007,7 +2043,8 @@ Meine Aufgabe:
 <h3>Seiten im echten Gebrauch prüfen</h3>
 <p class="meta">Englischer Name: <strong>Browser Automation QA</strong></p>
 <p class="meta">Gruppe: Prüfen und Qualität sichern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Seiten im echten Gebrauch prüfen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht eine aufrufbare Seite und eine Möglichkeit zur echten Ansicht auf verschiedenen Größen.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll vor Veröffentlichung oder nach Änderungen. Nicht ausreichend, wenn nur ein schneller Textcheck nötig ist.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Seiten im echten Gebrauch prüfen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2049,7 +2086,8 @@ Meine Aufgabe:
 <p class="meta">Englischer Name: <strong>Goal Prompt Generator</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
 <p class="meta">Ausführlicher Einstieg: <a href="#zielauftrag">Abschnitt 5. Zielauftrag erstellen</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Hilf mir bitte, aus folgendem Wunsch einen klaren Zielauftrag (prompt) zu machen.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Reiner Text-Helfer; fast überall nutzbar.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt für fast jede größere Aufgabe. Oft die kleinste sinnvolle Form vor allem anderen.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Hilf mir bitte, aus folgendem Wunsch einen klaren Zielauftrag (prompt) zu machen.
 
 Wichtig:
 Bitte erledige den Wunsch noch nicht.
@@ -2083,7 +2121,8 @@ Mein Wunsch:
 <h3>Arbeit sichtbar übergeben</h3>
 <p class="meta">Englischer Name: <strong>Visible Delegation</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Arbeit sichtbar übergeben“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht eine Aufgabe, die länger dauert oder an andere übergeben wird.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei Delegation oder längeren Aufgaben. Für Sofortantworten ist es unnötig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Arbeit sichtbar übergeben“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2124,7 +2163,8 @@ Meine Aufgabe:
 <h3>Sitzungen ordnen</h3>
 <p class="meta">Englischer Name: <strong>Session Operating Map</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Sitzungen ordnen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht mehrere parallele Arbeiten und eine gemeinsame Übersicht.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei mehreren parallelen Strängen. Für ein einzelnes Gespräch zu viel Verwaltung.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Sitzungen ordnen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2165,7 +2205,8 @@ Meine Aufgabe:
 <h3>Eigene Änderungen besonders prüfen</h3>
 <p class="meta">Englischer Name: <strong>Self-Authored PR Merge</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Eigene Änderungen besonders prüfen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht ein Ergebnis, das nicht unbesehen übernommen werden sollte.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An konkrete Werkzeuge, Zugänge oder Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich bei wichtigen eigenen Änderungen. Bei heiklen Folgen ersetzt es keine menschliche Kontrolle.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Eigene Änderungen besonders prüfen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2207,7 +2248,8 @@ Meine Aufgabe:
 <h3>Beteiligte informieren</h3>
 <p class="meta">Englischer Name: <strong>Stakeholder Update Email</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Beteiligte informieren“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht echtes Ergebnis oder echten Zwischenstand; keine erfundenen Fortschritte.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt nach Abschluss, Blockade oder Übergabe. Nicht senden, wenn die Prüfung noch fehlt.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Beteiligte informieren“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2249,7 +2291,8 @@ Meine Aufgabe:
 <h3>Aus Wiederholung lernen</h3>
 <p class="meta">Englischer Name: <strong>Session-to-Skill Extractor</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Aus Wiederholung lernen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht mehrere ähnliche Fälle oder eine wiederholt nützliche Vorgehensweise.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich nach echten Wiederholungen. Aus einem Einzelfall sollte noch keine feste Regel entstehen.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Aus Wiederholung lernen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2290,7 +2333,8 @@ Meine Aufgabe:
 <h3>Helfersystem entwerfen</h3>
 <p class="meta">Englischer Name: <strong>Agentic Harness Designer</strong></p>
 <p class="meta">Gruppe: Aufgaben steuern</p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Helfer „Helfersystem entwerfen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Direkt im Chat nutzbar</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht mehrere Helfer, klare Rollen und erkennbare Übergaben.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>Als Text gut übertragbar und nicht an einen bestimmten Anbieter gebunden.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll für größere Vorhaben mit mehreren Schritten. Für einfache Aufgaben ist es zu schwergewichtig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Helfer „Helfersystem entwerfen“ ausprobieren.
 
 Wichtig:
 Bitte erledige meine Aufgabe noch nicht sofort.
@@ -2351,7 +2395,8 @@ Meine Aufgabe:
 <p class="meta">Englischer Name: <strong>Runbook 01 · Talk to Published</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-03">Aufnahmen verschriftlichen (Media Transcription)</a> · <a href="#skill-06">Gedanken sortieren (Brain Dump Processor)</a> · <a href="#skill-11">Eigene Schreibweise bewahren (Personal Voice Skill)</a> · <a href="#skill-05">Lange Antworten als Leseseite sichern (HTML Artifact Builder)</a> · <a href="#skill-16">Eigene Seite veröffentlichen (Personal Site Publisher)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Vom gesprochenen Gedanken zur veröffentlichten Seite“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht verschriftlichbare Aufnahmen, einen sicheren Schreib- und Ablageort sowie einen Veröffentlichungsweg.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt, wenn Sprechen bis Veröffentlichen regelmäßig vorkommt. Für einen einmaligen Text reichen einzelne Schritte.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Vom gesprochenen Gedanken zur veröffentlichten Seite“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2395,7 +2440,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 02 · Release Day</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-02">Aktuelles sicher nachschlagen (Current-Information Search)</a> · <a href="#skill-12">Neuigkeit einordnen (New Release Briefing)</a> · <a href="#skill-14">Bildwünsche im eigenen Stil beschreiben (Branded Image Prompting Guide)</a> · <a href="#skill-01">Bilder verlässlich erzeugen (Image Generation Gateway)</a> · <a href="#skill-16">Eigene Seite veröffentlichen (Personal Site Publisher)</a> · <a href="#skill-29">Beteiligte informieren (Stakeholder Update Email)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Neuigkeit am selben Tag einordnen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht aktuelle Quellen; für Bild, Veröffentlichung oder Versand können zusätzliche Zugänge nötig sein.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Lohnt sich für regelmäßige aktuelle Einordnungen. Nicht nötig, wenn du nur privat eine Nachricht verstehen willst.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Neuigkeit am selben Tag einordnen“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2439,7 +2485,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 03 · The Video Production Line</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-03">Aufnahmen verschriftlichen (Media Transcription)</a> · <a href="#skill-19">Gesprochenes kürzen (Radio Edit)</a> · <a href="#skill-20">Zusatzbilder planen (B-Roll Pipeline)</a> · <a href="#skill-21">Schnittarbeit vorbereiten (AI Editing Assistant)</a> · <a href="#skill-29">Beteiligte informieren (Stakeholder Update Email)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Videomaterial zur prüfbaren Fassung bringen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Video- oder Audiodateien, sichere Ablage und je nach Umsetzung Schnitt- oder Verschriftlichungswerkzeuge.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich für wiederkehrende Videoproduktion. Für einen kurzen Einzelclip meist zu schwergewichtig.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Videomaterial zur prüfbaren Fassung bringen“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2483,7 +2530,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 04 · Ship a Page You Can Trust</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-15">Gutes Aussehen sichern (Frontend Taste System)</a> · <a href="#skill-16">Eigene Seite veröffentlichen (Personal Site Publisher)</a> · <a href="#skill-24">Seiten im echten Gebrauch prüfen (Browser Automation QA)</a> · <a href="#skill-22">Prüfplan erstellen (Testing Runbook Creator)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Eine Seite veröffentlichen, der man vertrauen kann“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Veröffentlichungsweg, erreichbare Adresse und eine echte Sichtprüfung nach dem Hochladen.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich für wiederkehrende Veröffentlichungen. Für eine interne Entwurfsseite reicht oft Speichern und Sichtprüfung.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Eine Seite veröffentlichen, der man vertrauen kann“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2527,7 +2575,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 05 · The Research Engine</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-04">Große Unterlagen handlich vorbereiten (Heavy File Ingestion)</a> · <a href="#skill-02">Aktuelles sicher nachschlagen (Current-Information Search)</a> · <a href="#skill-09">Annahmen prüfen (Assumption Checker)</a> · <a href="#skill-07">Besprechungen auswerten (Meeting Synthesis)</a> · <a href="#skill-05">Lange Antworten als Leseseite sichern (HTML Artifact Builder)</a> · <a href="#skill-10">Lesepaket bauen (Reading Pack Builder)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Belastbare Recherche mit Belegkette“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung | Kosten möglich</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht Quellenzugriff, aktuelle Recherche, Ablage für Belege und menschliche Entscheidung bei widersprüchlichen Annahmen.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Möglich, wenn externe Dienste genutzt werden. Vor häufiger Nutzung Konto, Gebühren und Freigabe klären.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Passt für Entscheidungen, die belegbar sein müssen. Für schnelle Orientierung ist der Ablauf oft zu groß.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Belastbare Recherche mit Belegkette“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2570,7 +2619,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 06 · Delegate and Verify</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-27">Sitzungen ordnen (Session Operating Map)</a> · <a href="#skill-25">Zielauftrag erstellen (Goal Prompt Generator)</a> · <a href="#skill-26">Arbeit sichtbar übergeben (Visible Delegation)</a> · <a href="#skill-28">Eigene Änderungen besonders prüfen (Self-Authored PR Merge)</a> · <a href="#skill-29">Beteiligte informieren (Stakeholder Update Email)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Aufgaben übergeben und prüfen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht klare Ziele, sichtbare Übergaben und je nach Umgebung Zugriff auf Aufgaben-, Prüf- oder Versandwege.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Sinnvoll bei parallelen oder delegierten Arbeiten. Für eine einzelne kurze Aufgabe reicht ein Zielauftrag.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Aufgaben übergeben und prüfen“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2614,7 +2664,8 @@ Mein Vorhaben:
 <p class="meta">Englischer Name: <strong>Runbook 07 · The Flywheel</strong></p>
 <p class="meta">Gruppe: Ablaufplan</p>
 <p class="meta">Verwandte einzelne Helfer: <a href="#skill-30">Aus Wiederholung lernen (Session-to-Skill Extractor)</a> · <a href="#skill-22">Prüfplan erstellen (Testing Runbook Creator)</a> · <a href="#skill-23">Prüfwissen merken (Page Testing Memory)</a> · <a href="#skill-27">Sitzungen ordnen (Session Operating Map)</a></p>
-<div class="start-box"><strong>Starttext zum Kopieren</strong><pre>Ich möchte den Ablaufplan „Aus jeder Arbeitsrunde lernen“ ausprobieren.
+<div class="quick-facts" aria-label="Kurzübersicht"><div class="quick-fact"><strong>Nutzung</strong><span>Braucht Einrichtung</span></div><div class="quick-fact"><strong>Voraussetzungen</strong><span>Braucht abgeschlossene Arbeitsrunden, nachvollziehbare Prüferfahrungen und einen Ort für spätere Regeln.</span></div><div class="quick-fact"><strong>Kosten</strong><span>Keine besonderen externen Kosten erkennbar. Normale Konto- oder Plattformkosten können trotzdem gelten.</span></div><div class="quick-fact"><strong>Bindung</strong><span>An beteiligte Helfer, Zugänge und Ablageorte gebunden. Details unten prüfen.</span></div><div class="quick-fact"><strong>Für wen</strong><span>Hilfreich, wenn Lernen aus Wiederholung Zeit spart. Nicht jede einzelne Beobachtung verdient einen neuen Ablauf.</span></div></div>
+<div class="start-box copy-block"><div class="copy-head"><strong>Starttext zum Kopieren</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Ich möchte den Ablaufplan „Aus jeder Arbeitsrunde lernen“ ausprobieren.
 
 Wichtig:
 Bitte führe den Ablauf noch nicht aus.
@@ -2656,4 +2707,44 @@ Mein Vorhaben:
 </section>
 </main>
 <footer>Universelle Arbeitshelfer v1.1 - Diese Datei zeigt Anleitungen und führt selbst nichts aus.</footer>
+<script>
+document.addEventListener('click', async function (event) {
+  var button = event.target.closest('[data-copy-button]');
+  if (!button) return;
+  var block = button.closest('.copy-block');
+  var pre = block ? block.querySelector('pre') : null;
+  if (!pre) return;
+  var text = pre.innerText;
+  var original = button.getAttribute('data-label') || button.textContent;
+  function reset(label) {
+    window.setTimeout(function () {
+      button.textContent = label;
+      button.classList.remove('is-copied');
+      button.classList.remove('is-error');
+    }, 1800);
+  }
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.position = 'fixed';
+      area.style.left = '-9999px';
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand('copy');
+      area.remove();
+    }
+    button.textContent = 'Kopiert';
+    button.classList.add('is-copied');
+    reset(original);
+  } catch (error) {
+    button.textContent = 'Nicht kopiert';
+    button.classList.add('is-error');
+    reset(original);
+  }
+});
+</script>
 </body></html>
