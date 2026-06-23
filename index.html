@@ -140,11 +140,12 @@
 <a href="#ablaufplan">7. Ablaufplan erstellen</a>
 <a href="#sicherheit">8. Sicherheit, Datenschutz und Freigaben</a>
 <a href="#ausprobieren">9. Einen Helfer ganz einfach ausprobieren</a>
-<a href="#dauerhaft-speichern">10. Einen Helfer dauerhaft speichern oder einrichten</a>
-<a href="#helferliste">11. Übersicht der 31 einzelnen Helfer</a>
-<a href="#ablaufkarten">12. Übersicht der 7 größeren Ablaufpläne</a>
-<a href="#fragen">13. Häufige Fragen</a>
-<a href="#warnsignale">14. Warnsignale und Schlussregel</a>
+<a href="#arbeitsrunden">10. In kurzen Arbeitsrunden arbeiten</a>
+<a href="#dauerhaft-speichern">11. Einen Helfer dauerhaft speichern oder einrichten</a>
+<a href="#helferliste">12. Übersicht der 31 einzelnen Helfer</a>
+<a href="#ablaufkarten">13. Übersicht der 7 größeren Ablaufpläne</a>
+<a href="#fragen">14. Häufige Fragen</a>
+<a href="#warnsignale">15. Warnsignale und Schlussregel</a>
 <a href="#detail-helfer">Details: einzelne Helfer</a>
 <a href="#detail-ablaufplaene">Details: Ablaufpläne</a></div></nav>
 <main>
@@ -184,6 +185,11 @@
 <td>Wie eine Wegbeschreibung.</td>
 </tr>
 <tr>
+<td>Arbeitsrunde (loop)</td>
+<td>Ein kurzer Durchgang aus klären, ausführen lassen, prüfen und entscheiden.</td>
+<td>Wie eine Runde: erst fahren, dann kurz anhalten und schauen.</td>
+</tr>
+<tr>
 <td>Ablaufplan (runbook)</td>
 <td>Ein kontrollierter Plan für mehrere Schritte mit Übergaben und Freigaben.</td>
 <td>Wie ein Einsatzplan.</td>
@@ -214,7 +220,7 @@
 <section id="lesereihenfolge">
 <h2>3. Drei Lesestufen und Reihenfolge</h2>
 <p>Diese Dokumentation hat drei Lesestufen. Die Hauptfassung erklärt die Idee in Alltagssprache. Die Detailfassungen enthalten bewusst technische Hinweise und werden als HTML-Vertiefungen bereitgestellt. Anbieter- oder Plattformhinweise sind Beispiele und müssen vor der Nutzung geprüft werden.</p>
-<p>Die drei Grundformen - Zielauftrag, feste Arbeitsweise und Ablaufplan - sind das Bauprinzip. Die 31 einzelnen Helfer sind konkrete Anwendungen dieser Formen; die 7 größeren Ablaufpläne verbinden mehrere Helfer zu einem kontrollierten Weg. Deshalb ist „Zielauftrag erstellen“ beides: die Grundform aus Abschnitt 5 und ein einzelner Helfer in Abschnitt 11.</p>
+<p>Die drei Grundformen - Zielauftrag, feste Arbeitsweise und Ablaufplan - sind das Bauprinzip. Die 31 einzelnen Helfer sind konkrete Anwendungen dieser Formen; die 7 größeren Ablaufpläne verbinden mehrere Helfer zu einem kontrollierten Weg. Deshalb ist „Zielauftrag erstellen“ beides: die Grundform aus Abschnitt 5 und ein einzelner Helfer in Abschnitt 12.</p>
 <p>Am leichtesten wird die Anleitung, wenn du sie danach in vier Durchgängen nutzt: erst verstehen, dann entscheiden, dann anwenden, danach gezielt nachschlagen.</p>
 <div class="cards">
 <div class="card"><strong>Verstehen</strong>Worum geht es, welche Begriffe tauchen auf, warum wird zuerst geklärt?</div>
@@ -270,6 +276,7 @@
 <h2>5. Zielauftrag erstellen</h2>
 <p>Ein Zielauftrag ist die wichtigste und meistgenutzte Form. Er macht aus einem vagen Wunsch einen Arbeitszettel, den ein digitaler Helfer sauber abarbeiten kann.</p>
 <p>Das ist zugleich der deutsche Einstieg zum Goal Prompt Generator. In der Übersicht der einzelnen Helfer heißt derselbe Helfer ebenfalls „Zielauftrag erstellen“.</p>
+<p>Manche Werkzeuge oder Teams nennen so einen vorbereiteten Arbeitszettel auch Goal-Auftrag oder Goal Prompt. In dieser Anleitung heißt er Zielauftrag, damit klar bleibt: Es geht um den fertigen Auftragstext, nicht schon um die erledigte Arbeit.</p>
 <p>Der Goal Prompt Generator erledigt die eigentliche Aufgabe nicht. Er erstellt nur den fertigen Auftragstext. Diesen Auftrag gibst du anschließend in einen neuen Chat oder an einen geeigneten Assistenten weiter, der die eigentliche Arbeit ausführen soll. Bei einfachen Textaufgaben kann das auch derselbe Assistent sein, wenn du danach ausdrücklich sagst: „Bitte führe diesen Zielauftrag jetzt aus.“</p>
 <p>Ein guter Zielauftrag enthält Ziel, Ausgangslage, benötigte Angaben, erlaubten Bereich, Nicht-Ziele, Sicherheitsgrenzen, Fertig-Kriterien, Prüfung und Stopp-Bedingungen.</p>
 <div class="cards">
@@ -460,7 +467,7 @@ Mein Vorhaben:
 </tr>
 <tr>
 <td>Du willst einen anderen Helfer testen</td>
-<td>Gehe zu „11. Übersicht der 31 einzelnen Helfer“, öffne die Details und kopiere dort den Starttext zum Helfer.</td>
+<td>Gehe zu „12. Übersicht der 31 einzelnen Helfer“, öffne die Details und kopiere dort den Starttext zum Helfer.</td>
 </tr>
 <tr>
 <td>Du willst den Starttext kopieren</td>
@@ -483,8 +490,71 @@ Mein Vorhaben:
 <div class="box prompt-box copy-block"><div class="copy-head"><strong>Kurzform des Ablaufs</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>HTML öffnen -&gt; passenden Helfer suchen -&gt; Starttext kopieren -&gt; neuen Chat öffnen -&gt; Starttext einfügen -&gt; eigenen Wunsch ergänzen -&gt; absenden -&gt; Rückfragen beantworten -&gt; fertiges Ergebnis prüfen.</pre></div>
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
+<section id="arbeitsrunden">
+<h2>10. In kurzen Arbeitsrunden arbeiten</h2>
+<p>Viele gute Ergebnisse entstehen nicht in einem einzigen Durchlauf. Eine Arbeitsrunde ist ein kurzer Durchgang: erst klären, dann ausführen lassen, dann prüfen, dann entscheiden, ob verbessert, freigegeben oder gestoppt wird.</p>
+<p>Das ist der praktische Kern dessen, was oft Loop genannt wird. Gemeint ist keine Endlosschleife, sondern eine bewusst begrenzte Runde mit klarem Ziel, sichtbarem Ergebnis und einer Entscheidung am Ende.</p>
+<p>Arbeitsrunden sind besonders hilfreich, wenn ein Zielauftrag zu groß wirkt, ein Ergebnis wichtig ist, mehrere Personen beteiligt sind oder ein Helfer etwas mit Außenwirkung vorbereiten soll.</p>
+<div class="cards">
+<div class="card"><strong>1. Klären</strong>Was soll diese Runde konkret erreichen? Was gehört ausdrücklich nicht dazu? Welche Angabe fehlt noch?</div>
+<div class="card"><strong>2. Arbeiten lassen</strong>Gib dem Assistenten nur den Umfang dieser Runde. Bei heiklen Schritten bleibt es bei Entwurf, Plan oder Vorschlag.</div>
+<div class="card"><strong>3. Prüfen</strong>Vergleiche das Ergebnis mit Ziel, Grenzen, Sicherheitsregeln und Freigaben. Frage nach, wenn etwas erfunden, unklar oder riskant wirkt.</div>
+<div class="card"><strong>4. Entscheiden</strong>Wähle bewusst: freigeben, verbessern lassen, enger begrenzen, an jemand anderen geben oder stoppen.</div>
+</div>
+<table><thead><tr>
+<th>Wenn du merkst ...</th>
+<th>Dann ist die nächste Runde ...</th>
+<th>Was du dem Assistenten sagst</th>
+</tr></thead><tbody>
+<tr>
+<td>Der Wunsch ist noch vage.</td>
+<td>eine Klärungsrunde.</td>
+<td>Stelle mir zuerst die nötigen Rückfragen und erstelle danach einen Zielauftrag.</td>
+</tr>
+<tr>
+<td>Ein erster Entwurf ist brauchbar, aber noch nicht gut.</td>
+<td>eine Verbesserungsrunde.</td>
+<td>Verbessere nur die genannten Punkte und ändere nichts außerhalb davon.</td>
+</tr>
+<tr>
+<td>Du bist unsicher, ob das Ergebnis stimmt.</td>
+<td>eine Prüfrunde.</td>
+<td>Prüfe das Ergebnis gegen Ziel, Grenzen und mögliche Fehler. Nenne nur echte Funde.</td>
+</tr>
+<tr>
+<td>Etwas hat Außenwirkung, kostet Geld oder ändert geteilte Daten.</td>
+<td>eine Freigaberunde.</td>
+<td>Bereite nur die Entscheidung vor. Führe nichts aus, bis ich ausdrücklich Ja sage.</td>
+</tr>
+<tr>
+<td>Der Assistent dreht sich im Kreis.</td>
+<td>eine Stopprunde.</td>
+<td>Fasse kurz zusammen, was offen ist, und stoppe. Keine weiteren Änderungen ohne neue Anweisung.</td>
+</tr>
+</tbody></table>
+<div class="note"><strong>Wichtig</strong><p>Eine gute Arbeitsrunde hat ein Ende. Wenn nach zwei oder drei Verbesserungsrunden kein echter Fortschritt mehr entsteht, stoppe, fasse den Stand zusammen und entscheide selbst, ob ein neuer Zielauftrag nötig ist.</p></div>
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext für eine Arbeitsrunde</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Hilf mir bitte, die nächste Arbeitsrunde klar zu begrenzen.
+
+Wichtig:
+Bitte erledige die eigentliche Aufgabe noch nicht, bevor Ziel, Grenze und Prüfung dieser Runde klar sind.
+
+Stelle mir zuerst die nötigen Rückfragen.
+Stelle höchstens fünf Fragen auf einmal.
+Frage nur nach Dingen, die du wirklich brauchst.
+
+Kläre für diese Runde:
+- Was genau soll am Ende dieser Runde sichtbar vorliegen?
+- Was gehört ausdrücklich nicht zu dieser Runde?
+- Welche Angaben fehlen noch?
+- Woran prüfen wir, ob die Runde gut genug ist?
+- Wann soll gestoppt oder ein Mensch gefragt werden?
+
+Mein Stand:
+...</pre></div>
+<p class="toplink"><a href="#oben">Zurück nach oben</a></p>
+</section>
 <section id="dauerhaft-speichern">
-<h2>10. Einen Helfer dauerhaft speichern oder einrichten</h2>
+<h2>11. Einen Helfer dauerhaft speichern oder einrichten</h2>
 <p>Wenn ein Helfer im Test nützlich war, musst du ihn nicht jedes Mal neu suchen. Du kannst ihn als Lesezeichen, als Textvorlage oder in einem eingebauten Helfer-Baukasten deiner Plattform speichern.</p>
 <p>Das ersetzt keinen eingebauten Baukasten. ChatGPT, Claude, Gemini und Microsoft Copilot haben eigene Wege, wiederverwendbare Anweisungen zu speichern. Diese Anleitung sagt dir, was du dort eintragen solltest: Name, Zweck, Starttext, Grenzen, Prüfregeln und eine ungefährliche Testaufgabe.</p>
 <p>Wichtig: Speichern bedeutet nicht automatisch, dass ein Helfer alles selbst tun darf. Senden, Veröffentlichen, Löschen, Zusammenführen, Dateiänderungen oder Änderungen geteilter Daten brauchen weiterhin ein ausdrücklich bestätigtes Ja.</p>
@@ -558,7 +628,7 @@ Testaufgabe:
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="helferliste">
-<h2>11. Übersicht der 31 einzelnen Helfer</h2>
+<h2>12. Übersicht der 31 einzelnen Helfer</h2>
 <p>Die einzelnen Helfer sind nach Alltagssituationen geordnet. Öffne eine Gruppe, wenn sie zu deiner Situation passt. Jeder Helfer ist gekennzeichnet, ob er direkt im Chat läuft, eine Einrichtung braucht oder Kosten verursachen kann. Genaue Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
 <div class="badge-legend"><strong>Kennzeichnungen</strong>
 <div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
@@ -908,7 +978,7 @@ Testaufgabe:
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="ablaufkarten">
-<h2>12. Übersicht der 7 größeren Ablaufpläne</h2>
+<h2>13. Übersicht der 7 größeren Ablaufpläne</h2>
 <p>Die folgenden größeren Abläufe verbinden mehrere einzelne Helfer. Auch hier zeigen die Kennzeichnungen, ob vorher Einrichtung oder mögliche Kosten zu beachten sind. Die Übersicht nennt Zweck, grobe Stationen und den wichtigsten Freigabepunkt; Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
 <div class="badge-legend"><strong>Kennzeichnungen</strong>
 <div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
@@ -1042,7 +1112,7 @@ Testaufgabe:
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="fragen">
-<h2>13. Häufige Fragen</h2>
+<h2>14. Häufige Fragen</h2>
 <h3>Wo fange ich an?</h3><p>Mit einem Zielauftrag. Erst wenn dieselbe Aufgabe wiederkehrt, lohnt sich eine feste Arbeitsweise. Erst wenn mehrere Schritte mit Übergaben oder Freigaben nötig sind, lohnt sich ein Ablaufplan.</p>
 <h3>Kann ich das an verschiedenen Orten nutzen?</h3><p>Zielaufträge, Vorlagen und Erklärungen sind als Text gut übertragbar. Einige einzelne Helfer brauchen zusätzlich bestimmte Zugänge, Programme oder Ablageorte; das steht jeweils in der Detailfassung.</p>
 <h3>Ist das redundant zu eingebauten Skill-Buildern?</h3><p>Nein. Die eingebauten Baukästen speichern oder strukturieren den Helfer innerhalb einer Plattform. Diese Anleitung liefert dafür den geprüften Inhalt: Zweck, Starttext, Grenzen, Freigaben und Prüfschritte.</p>
@@ -1053,7 +1123,7 @@ Testaufgabe:
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="warnsignale">
-<h2>14. Warnsignale und Schlussregel</h2>
+<h2>15. Warnsignale und Schlussregel</h2>
 <p>Stoppe und kläre nach, wenn der digitale Helfer sofort loslegt, keine Prüfung nennt, heikle Daten ausschreiben will, neue Dokumente statt echter Lösung erzeugt oder eine Handlung nach außen ohne klares Ja plant.</p>
 <p>Eine gute Struktur produziert nicht mehr Papier, sondern bessere Entscheidungen. Der beste Ablauf bleibt: Wunsch formulieren, Zielauftrag klären, Annahmen prüfen, erst dann ausführen, Ergebnis kontrollieren und nur echte Wiederholungen als feste Arbeitsweise oder Ablaufplan festhalten.</p>
 <p>Kurzcheck zum Schluss: Ziel konkret, Nicht-Ziele benannt, heikle Daten geschützt, Freigabe geregelt, echte Prüfung vorhanden und die gewählte Form nicht größer als nötig.</p>
