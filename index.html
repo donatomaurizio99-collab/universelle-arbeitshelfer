@@ -66,6 +66,9 @@
         .group-block { border: 1px solid var(--line); border-radius: 8px; margin: 10px 0; background: #fbfdff; overflow: hidden; }
         .group-block summary { cursor: pointer; display: flex; justify-content: space-between; gap: 16px; padding: 13px 15px; font-weight: 700; color: var(--accent); }
         .group-block summary strong { color: var(--muted); font-size: .9rem; white-space: nowrap; }
+        .optional-content { border-top: 1px solid var(--line); padding: 14px 15px 16px; }
+        .optional-content .cards { margin-top: 10px; }
+        .optional-content p:last-child { margin-bottom: 0; }
         .row-list { border-top: 1px solid var(--line); }
         .helper-row { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 14px 15px; border-top: 1px solid var(--line); }
         .helper-row:first-child { border-top: 0; }
@@ -180,13 +183,8 @@
 <td>Wie eine bewährte Routine.</td>
 </tr>
 <tr>
-<td>Arbeitsablauf (workflow)</td>
-<td>Die tatsächliche Reihenfolge, in der Arbeitsschritte passieren.</td>
-<td>Wie eine Wegbeschreibung.</td>
-</tr>
-<tr>
 <td>Arbeitsrunde (loop)</td>
-<td>Ein kurzer Durchgang aus klären, ausführen lassen, prüfen und entscheiden.</td>
+<td>Ein kurzer, von dir gesteuerter Durchgang aus klären, ausführen lassen, prüfen und entscheiden. Nichts läuft automatisch weiter.</td>
 <td>Wie eine Runde: erst fahren, dann kurz anhalten und schauen.</td>
 </tr>
 <tr>
@@ -238,6 +236,32 @@
 <section id="entscheidung">
 <h2>4. Welche Form passt?</h2>
 <p>Wähle immer die kleinste Form, die die Aufgabe zuverlässig löst. Zu viele Vorlagen machen Arbeit schwerer statt leichter.</p>
+<div class="note"><strong>Die drei Ebenen auf einen Blick</strong><p>Wenn du unsicher bist, denke in drei Ebenen: Erst den Auftrag klären, dann in kurzen Runden arbeiten, und nur bei größeren Vorhaben einen Ablaufplan bauen.</p></div>
+<table><thead><tr>
+<th>Frage</th>
+<th>Zielauftrag</th>
+<th>Arbeitsrunde</th>
+<th>Ablaufplan</th>
+</tr></thead><tbody>
+<tr>
+<td>Was ist es?</td>
+<td>Der klare Auftrag.</td>
+<td>Ein begrenzter Durchgang.</td>
+<td>Der ganze Weg.</td>
+</tr>
+<tr>
+<td>Wann nutzen?</td>
+<td>Fast immer zuerst.</td>
+<td>Wenn ein Ergebnis geprüft, verbessert oder freigegeben wird.</td>
+<td>Bei mehreren Schritten, Übergaben oder Freigaben.</td>
+</tr>
+<tr>
+<td>Was entsteht?</td>
+<td>Ein Auftragstext.</td>
+<td>Eine geprüfte nächste Fassung oder Entscheidung.</td>
+<td>Ein Plan mit Stationen, Übergaben und Stopps.</td>
+</tr>
+</tbody></table>
 <table><thead><tr>
 <th>Dein Bedarf</th>
 <th>Passende Form</th>
@@ -492,6 +516,7 @@ Mein Vorhaben:
 </section>
 <section id="arbeitsrunden">
 <h2>10. In kurzen Arbeitsrunden arbeiten</h2>
+<p>Du steuerst jede Arbeitsrunde selbst. Nichts läuft automatisch weiter, und jede Runde braucht ein klares Ende.</p>
 <p>Viele gute Ergebnisse entstehen nicht in einem einzigen Durchlauf. Eine Arbeitsrunde ist ein kurzer Durchgang: erst klären, dann ausführen lassen, dann prüfen, dann entscheiden, ob verbessert, freigegeben oder gestoppt wird.</p>
 <p>Das ist der praktische Kern dessen, was oft Loop genannt wird. Gemeint ist keine Endlosschleife, sondern eine bewusst begrenzte Runde mit klarem Ziel, sichtbarem Ergebnis und einer Entscheidung am Ende.</p>
 <p>Arbeitsrunden sind besonders hilfreich, wenn ein Zielauftrag zu groß wirkt, ein Ergebnis wichtig ist, mehrere Personen beteiligt sind oder ein Helfer etwas mit Außenwirkung vorbereiten soll.</p>
@@ -527,16 +552,6 @@ Mein Vorhaben:
 <td>Eine Arbeitsrunde kann Teil eines Ablaufplans sein, funktioniert aber auch allein.</td>
 </tr>
 </tbody></table>
-<div class="note">
-<strong>Für Fortgeschrittene: Zielauftrag, Arbeitsrunde und Ablaufplan kombinieren</strong>
-<p>Wenn du die Grundidee verstanden hast, kannst du die drei Ebenen zusammen nutzen. Beispiel: Du möchtest eine wichtige Einladung per E-Mail vorbereiten, die geprüft und später verschickt werden soll.</p>
-</div>
-<div class="cards">
-<div class="card"><strong>1. Zielauftrag</strong>Zuerst klärst du das Ziel: Wer soll eingeladen werden, worum geht es, welcher Ton passt, was darf nicht in der Nachricht stehen und wer muss vor dem Versand zustimmen?</div>
-<div class="card"><strong>2. Ablaufplan</strong>Danach ordnest du den ganzen Weg: Entwurf erstellen, Inhalt prüfen, Empfängerliste kontrollieren, Freigabe einholen, Versand vorbereiten. Der Ablaufplan sagt auch, wo gestoppt wird.</div>
-<div class="card"><strong>3. Arbeitsrunde</strong>Innerhalb dieses Weges arbeitest du in kurzen Runden: eine erste Fassung schreiben lassen, prüfen, gezielt verbessern, erneut prüfen und erst nach deinem klaren Ja zur nächsten Station gehen.</div>
-</div>
-<p>So entsteht keine zusätzliche Bürokratie: Der Zielauftrag klärt das Ziel, der Ablaufplan hält den Gesamtweg sicher, und die Arbeitsrunden sorgen dafür, dass du unterwegs bewusst prüfst und entscheidest.</p>
 <div class="cards">
 <div class="card"><strong>1. Klären</strong>Was soll diese Runde konkret erreichen? Was gehört ausdrücklich nicht dazu? Welche Angabe fehlt noch?</div>
 <div class="card"><strong>2. Arbeiten lassen</strong>Gib dem Assistenten nur den Umfang dieser Runde. Bei heiklen Schritten bleibt es bei Entwurf, Plan oder Vorschlag.</div>
@@ -575,6 +590,17 @@ Mein Vorhaben:
 </tr>
 </tbody></table>
 <div class="note"><strong>Wichtig</strong><p>Eine gute Arbeitsrunde hat ein Ende. Wenn nach zwei oder drei Verbesserungsrunden kein echter Fortschritt mehr entsteht, stoppe, fasse den Stand zusammen und entscheide selbst, ob ein neuer Zielauftrag nötig ist.</p></div>
+<details class="group-block optional-block">
+<summary><span>Optional: die drei Ebenen zusammen nutzen (E-Mail-Einladung)</span><strong>Optional</strong></summary>
+<div class="optional-content">
+<p>Wenn du die Grundidee verstanden hast, kannst du die drei Ebenen zusammen nutzen. Beispiel: Du möchtest eine wichtige Einladung per E-Mail vorbereiten, die geprüft und später verschickt werden soll.</p>
+<div class="cards">
+<div class="card"><strong>1. Zielauftrag</strong>Zuerst klärst du das Ziel: Wer soll eingeladen werden, worum geht es, welcher Ton passt, was darf nicht in der Nachricht stehen und wer muss vor dem Versand zustimmen?</div>
+<div class="card"><strong>2. Ablaufplan</strong>Danach ordnest du den ganzen Weg: Entwurf erstellen, Inhalt prüfen, Empfängerliste kontrollieren, Freigabe einholen, Versand vorbereiten. Der Ablaufplan sagt auch, wo gestoppt wird. Ohne diese Ordnung könnte die Einladung an die falsche Liste gehen oder zu früh verschickt werden. Für eine einzelne E-Mail reichen dafür oft drei kurze Zeilen.</div>
+<div class="card"><strong>3. Arbeitsrunde</strong>Innerhalb dieses Weges arbeitest du in kurzen Runden: eine erste Fassung schreiben lassen, prüfen, gezielt verbessern, erneut prüfen und erst nach deinem klaren Ja zum nächsten Schritt gehen.</div>
+</div>
+<p>So entsteht keine zusätzliche Bürokratie: Der Zielauftrag klärt das Ziel, der Ablaufplan hält den Gesamtweg sicher, und die Arbeitsrunden sorgen dafür, dass du unterwegs bewusst prüfst und entscheidest.</p>
+</div></details>
 <div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext für eine Arbeitsrunde</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>Hilf mir bitte, die nächste Arbeitsrunde klar zu begrenzen.
 
 Wichtig:
