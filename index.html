@@ -125,7 +125,7 @@
           .copy-head { align-items: flex-start; flex-direction: column; }
           .timeline-grid { grid-template-columns: 1fr; }
         }
-        @media print { nav { position: static; } section { box-shadow: none; break-inside: avoid; } }
+        @media print { nav { position: static; } section { box-shadow: none; break-inside: avoid; } .copy-button, .copy-hint { display: none; } .copy-head { display: block; } }
         
 </style>
 </head>
@@ -237,7 +237,7 @@
 <h2>4. Welche Form passt?</h2>
 <p>Wähle immer die kleinste Form, die die Aufgabe zuverlässig löst. Zu viele Vorlagen machen Arbeit schwerer statt leichter.</p>
 <div class="note"><strong>Generatoren sind Fragehelfer</strong><p>Die Generatoren erledigen die eigentliche Arbeit nicht sofort. Sie stellen zuerst Rückfragen aus deinem konkreten Wunsch und aus festen Pflichtbestandteilen: Ziel, Grenzen, erlaubter Bereich, Risiken, benötigte Angaben, Prüfung und Stopp-Regeln. Am Ende entsteht ein fertiges Arbeitsdokument - zum Beispiel ein Zielauftrag, eine feste Arbeitsweise, ein Ablaufplan oder eine begrenzte Arbeitsrunde. Dieses Ergebnis prüfst du kurz und gibst es erst danach in einem neuen Chat oder an einen passenden Assistenten zur Ausführung weiter.</p></div>
-<div class="note"><strong>Unsicher? Starte mit dem Arbeitshelfer-Lotsen</strong><p>Der Arbeitshelfer-Lotse (order router) ist die kurze Vorstufe, wenn du noch nicht weißt, welche Form passt. Er stellt höchstens fünf Fragen, empfiehlt die kleinste passende Form und sagt auch, was du gerade nicht brauchst. Er erledigt nichts, erstellt noch keinen fertigen Auftrag und speichert nichts dauerhaft. Er gibt nur den passenden Start in den nächsten Fragehelfer weiter.</p></div>
+<div class="note"><strong>Unsicher? Starte mit dem Arbeitshelfer-Lotsen</strong><p>Der Arbeitshelfer-Lotse (order router) ist die kurze Vorstufe, wenn du noch nicht weißt, welche Form passt. Er stellt höchstens fünf Fragen, empfiehlt die kleinste passende Form und sagt auch, was du gerade nicht brauchst. Er erledigt nichts, erstellt noch keinen fertigen Auftrag und speichert nichts dauerhaft. Auch der Lotse ist nur ein Text zum Kopieren in einen Chat; diese Seite leitet dich nicht automatisch weiter. Er gibt nur den passenden Start in den nächsten Fragehelfer weiter.</p></div>
 <div class="note"><strong>Die drei Ebenen auf einen Blick</strong><p>Wenn du unsicher bist, denke in drei Ebenen: Erst den Auftrag klären, dann in kurzen Runden arbeiten, und nur bei größeren Vorhaben einen Ablaufplan bauen.</p></div>
 <table><thead><tr>
 <th>Frage</th>
@@ -340,11 +340,12 @@ Mein Wunsch:
 <p>Ein Zielauftrag ist die wichtigste und meistgenutzte Form. Er macht aus einem vagen Wunsch einen Arbeitszettel, den ein digitaler Helfer sauber abarbeiten kann.</p>
 <p>Das ist zugleich der deutsche Einstieg zum Goal Prompt Generator. In der Übersicht der einzelnen Helfer heißt derselbe Helfer ebenfalls „Zielauftrag erstellen“.</p>
 <p>Manche Werkzeuge oder Teams nennen so einen vorbereiteten Arbeitszettel auch Goal-Auftrag oder Goal Prompt. In dieser Anleitung heißt er Zielauftrag, damit klar bleibt: Es geht um den fertigen Auftragstext, nicht schon um die erledigte Arbeit.</p>
-<p>Der Goal Prompt Generator erledigt die eigentliche Aufgabe nicht. Er erstellt nur den fertigen Auftragstext. Diesen Auftrag gibst du anschließend in einen neuen Chat oder an einen geeigneten Assistenten weiter, der die eigentliche Arbeit ausführen soll. Bei einfachen Textaufgaben kann das auch derselbe Assistent sein, wenn du danach ausdrücklich sagst: „Bitte führe diesen Zielauftrag jetzt aus.“</p>
+<p>Der Goal Prompt Generator erledigt die eigentliche Aufgabe nicht. Er erstellt nur den fertigen Auftragstext. Diesen Auftrag gibst du anschließend in einen neuen Chat oder an einen geeigneten Assistenten weiter, der die eigentliche Arbeit ausführen soll.</p>
 <p>Ein guter Zielauftrag enthält Ziel, Ausgangslage, benötigte Angaben, erlaubten Bereich, Nicht-Ziele, Sicherheitsgrenzen, Fertig-Kriterien, Prüfung und Stopp-Bedingungen.</p>
 <div class="cards">
 <a class="card" href="#skill-25"><strong>Details zu diesem Helfer</strong>Technische Vertiefung und derselbe Starttext in der Detailfassung.<span>Öffnen</span></a>
 </div>
+<div class="note"><strong>Wichtig</strong><p>Bei sehr einfachen Textaufgaben kann ausnahmsweise derselbe Assistent weitermachen. Sage dann nach deiner Prüfung ausdrücklich: „Bitte führe diesen Zielauftrag jetzt aus.“ Die sichere Standardregel bleibt: erst fertigen Auftrag prüfen, dann in einem neuen Chat oder mit einem passenden Assistenten ausführen lassen.</p></div>
 <h3>Beispiel: E-Mail an die Hausverwaltung</h3>
 <p>Du musst am Anfang keine perfekte Formulierung liefern. Schreibe deinen Wunsch ruhig unvollständig auf. Der Assistent stellt Rückfragen und macht daraus anschließend eine klare Fassung.</p>
 <div class="box"><strong>Eingabe des Nutzers</strong>Schreib mir eine E-Mail an die Hausverwaltung.</div>
@@ -508,22 +509,28 @@ Mein Vorhaben:
 <h2>9. Einen Helfer ganz einfach ausprobieren</h2>
 <div class="note"><strong>Wichtig</strong><p>Wichtig vorab: Ausprobieren bedeutet zuerst, mit dem Assistenten ins Gespräch zu kommen. Reine Text-Helfer, zum Beispiel Zielauftrag erstellen, Gedanken sortieren oder Annahmen prüfen, funktionieren direkt in einem normalen Chat. Helfer, die wirklich etwas tun - Bilder erzeugen, Aufnahmen umwandeln, Dateien ändern, veröffentlichen oder senden - brauchen ein Werkzeug mit passenden Rechten und können Kosten verursachen. Was ein Helfer braucht, steht in seiner Detailfassung unter „Was du brauchst“.</p></div>
 <p>Ausgangspunkt: Du hast den Link zu dieser HTML geöffnet, liest ein wenig und möchtest einen Helfer ausprobieren. Die HTML selbst führt nichts aus. Sie liefert dir den passenden Starttext, den du in ChatGPT, Claude, Gemini, Copilot oder einen ähnlichen Assistenten kopierst.</p>
+<p>Wenn du noch nicht weißt, welcher Helfer passt, starte zuerst mit dem Arbeitshelfer-Lotsen aus Abschnitt 4. Er ist ebenfalls nur ein Starttext zum Kopieren und hilft dir, die passende Auftragsart zu wählen.</p>
 <p>Beispiel: Wenn du den Goal Prompt Generator ausprobieren möchtest, gehst du in dieser Anleitung zu „5. Zielauftrag erstellen“. In der Übersicht heißt derselbe Helfer ebenfalls „Zielauftrag erstellen“.</p>
 <p>Wichtig ist die Reihenfolge: Starttext kopieren, eigenen Wunsch ergänzen, absenden. Danach stellt der Assistent die Rückfragen von selbst, weil der Starttext ihn ausdrücklich dazu auffordert.</p>
 <p>Merke: Beim Ausprobieren entsteht meist zuerst ein Zwischenergebnis: ein fertiger Zielauftrag, eine wiederverwendbare Anleitung oder ein Ablaufplan. Die eigentliche Arbeit beginnt erst danach, wenn du dieses Ergebnis bewusst in einem neuen Chat oder mit einem passenden Assistenten ausführen lässt.</p>
 <div class="cards">
 <div class="card"><strong>1. Link öffnen</strong>Öffne die HTML im Browser und suche den Helfer, den du testen möchtest.</div>
-<div class="card"><strong>2. Beim Beispiel starten</strong>Für den Goal Prompt Generator gehe zu „5. Zielauftrag erstellen“ und kopiere dort den Starttext.</div>
-<div class="card"><strong>3. Neuen Chat öffnen</strong>Öffne ChatGPT, Claude, Gemini, Copilot oder einen ähnlichen Assistenten.</div>
-<div class="card"><strong>4. Starttext einfügen</strong>Füge den Starttext ein und schreibe deinen eigenen Wunsch unter „Mein Wunsch“ oder an die markierte Stelle.</div>
-<div class="card"><strong>5. Absenden</strong>Jetzt übernimmt der Assistent: Er soll nicht sofort arbeiten, sondern zuerst Rückfragen stellen.</div>
-<div class="card"><strong>6. Fragen beantworten</strong>Beantworte die Rückfragen kurz. Wenn du etwas nicht weißt, schreibe genau das.</div>
-<div class="card"><strong>7. Ergebnis nutzen</strong>Beim Goal Prompt Generator ist das Ergebnis ein fertiger Zielauftrag. Gib diesen Auftrag anschließend in einen neuen Chat oder an einen geeigneten Assistenten weiter. Bei einfachen Textaufgaben kann das auch derselbe Assistent sein, wenn du danach ausdrücklich sagst: „Bitte führe diesen Zielauftrag jetzt aus.“</div>
+<div class="card"><strong>2. Bei Unsicherheit den Lotsen nutzen</strong>Wenn du nicht weißt, welcher Helfer passt, gehe zu „4. Welche Form passt?“ und kopiere den Starttext für den Arbeitshelfer-Lotsen.</div>
+<div class="card"><strong>3. Beim Beispiel starten</strong>Wenn du den Goal Prompt Generator direkt testen möchtest, gehe zu „5. Zielauftrag erstellen“ und kopiere dort den Starttext.</div>
+<div class="card"><strong>4. Neuen Chat öffnen</strong>Öffne ChatGPT, Claude, Gemini, Copilot oder einen ähnlichen Assistenten.</div>
+<div class="card"><strong>5. Starttext einfügen</strong>Füge den Starttext ein und schreibe deinen eigenen Wunsch unter „Mein Wunsch“ oder an die markierte Stelle.</div>
+<div class="card"><strong>6. Absenden</strong>Jetzt übernimmt der Assistent: Er soll nicht sofort arbeiten, sondern zuerst Rückfragen stellen.</div>
+<div class="card"><strong>7. Fragen beantworten</strong>Beantworte die Rückfragen kurz. Wenn du etwas nicht weißt, schreibe genau das.</div>
+<div class="card"><strong>8. Ergebnis nutzen</strong>Beim Goal Prompt Generator ist das Ergebnis ein fertiger Zielauftrag. Gib diesen Auftrag anschließend in einen neuen Chat oder an einen geeigneten Assistenten weiter.</div>
 </div>
 <table><thead><tr>
 <th>Situation</th>
 <th>Was du tust</th>
 </tr></thead><tbody>
+<tr>
+<td>Du weißt noch nicht, welcher Helfer passt</td>
+<td>Gehe zu „4. Welche Form passt?“, kopiere den Starttext für den Arbeitshelfer-Lotsen und lass dir zuerst die passende Auftragsart empfehlen.</td>
+</tr>
 <tr>
 <td>Du willst den Goal Prompt Generator testen</td>
 <td>Klicke auf „5. Zielauftrag erstellen“, kopiere den Starttext, öffne einen neuen Chat und ergänze deinen Wunsch.</td>
@@ -550,7 +557,7 @@ Mein Vorhaben:
 </tr>
 </tbody></table>
 <div class="note"><strong>Wichtig</strong><p>Du musst die Rückfragen nicht extra auslösen. Sie kommen nach dem Absenden, wenn der Starttext klar genug ist. Für alltägliche Text-Aufgaben wie E-Mail, Brief oder Zusammenfassung kannst du den fertigen Zielauftrag direkt im normalen Chat weiterverwenden. Für Aufgaben, bei denen ein Helfer selbst Dateien ändert, Befehle ausführt, veröffentlicht, sendet oder löscht, brauchst du ein entsprechend ausgestattetes Werkzeug und dein ausdrückliches Ja. Nutze zum ersten Test eine ungefährliche Beispielaufgabe und kopiere keine Passwörter, Zahlungsdaten oder privaten Unterlagen hinein.</p></div>
-<div class="box prompt-box copy-block"><div class="copy-head"><strong>Kurzform des Ablaufs</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>HTML öffnen -&gt; passenden Helfer suchen -&gt; Starttext kopieren -&gt; neuen Chat öffnen -&gt; Starttext einfügen -&gt; eigenen Wunsch ergänzen -&gt; absenden -&gt; Rückfragen beantworten -&gt; fertiges Ergebnis prüfen.</pre></div>
+<div class="box prompt-box copy-block"><div class="copy-head"><strong>Kurzform des Ablaufs</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><pre>HTML öffnen -&gt; passenden Helfer suchen oder zuerst den Lotsen fragen -&gt; Starttext kopieren -&gt; neuen Chat öffnen -&gt; Starttext einfügen -&gt; eigenen Wunsch ergänzen -&gt; absenden -&gt; Rückfragen beantworten -&gt; fertiges Ergebnis prüfen.</pre></div>
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
 </section>
 <section id="arbeitsrunden">
@@ -664,6 +671,7 @@ Mein Stand:
 <h2>11. Einen Helfer dauerhaft speichern oder einrichten</h2>
 <p>Wenn ein Helfer im Test nützlich war, musst du ihn nicht jedes Mal neu suchen. Du kannst ihn als Lesezeichen, als Textvorlage oder in einem eingebauten Helfer-Baukasten deiner Plattform speichern.</p>
 <p>Das ersetzt keinen eingebauten Baukasten. ChatGPT, Claude, Gemini und Microsoft Copilot haben eigene Wege, wiederverwendbare Anweisungen zu speichern. Diese Anleitung sagt dir, was du dort eintragen solltest: Name, Zweck, Starttext, Grenzen, Prüfregeln und eine ungefährliche Testaufgabe.</p>
+<p>Stand: 24. Juni 2026. Plattformnamen und Speicherorte können sich ändern; prüfe vor dem Einrichten kurz, wie deine Plattform diese Funktion aktuell nennt.</p>
 <p>Wichtig: Speichern bedeutet nicht automatisch, dass ein Helfer alles selbst tun darf. Senden, Veröffentlichen, Löschen, Zusammenführen, Dateiänderungen oder Änderungen geteilter Daten brauchen weiterhin ein ausdrücklich bestätigtes Ja.</p>
 <div class="cards">
 <div class="card"><strong>1. Lesezeichen</strong>Speichere den Link zur passenden Stelle in der HTML. Gut, wenn du den Helfer selten brauchst und den Starttext bei Bedarf neu kopieren möchtest.</div>
