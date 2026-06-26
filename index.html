@@ -152,6 +152,7 @@
 <a href="#detail-helfer">Details: einzelne Helfer</a>
 <a href="#detail-ablaufplaene">Details: Ablaufpläne</a></div></nav>
 <main>
+<section id="pflegehinweis" class="note"><h2>Pflegehinweis</h2><p>Diese Komplettfassung ist ein automatisch erzeugtes Gesamtpaket aus Hauptfassung und Detailfassungen. Inhaltliche Änderungen bitte in der Generator-Quelle pflegen und die Datei danach neu erzeugen, damit HTML, PDF und Detailseiten nicht auseinanderlaufen.</p></section>
 <section id="einstieg">
 <h2>1. Worum es geht</h2>
 <p>Diese Anleitung richtet sich an Menschen, die mit digitalen Helfern verlässlich arbeiten möchten, ohne sich vorher in Fachsprache einarbeiten zu müssen.</p>
@@ -243,7 +244,7 @@
 <h2>4. Auftragsstart: Welche Form passt?</h2>
 <p>Wenn du unsicher bist, starte mit Auftragsstart. Das ist die eine Eingangstür: Du musst nicht vorher wissen, ob dein Wunsch klein, normal, wiederkehrend, mehrstufig oder riskant ist.</p>
 <p>Auftragsstart und alle Generatoren führen nichts aus. Sie erstellen nur Text: eine Empfehlung, einen Zielauftrag, eine Arbeitsrunde, eine feste Arbeitsweise oder einen Ablaufplan. Ob ein späterer Assistent Stopps und Freigaben einhält, hängt vom ausführenden Chat und von dir ab.</p>
-<div class="note"><strong>Schnellster Weg: Auftragsstart</strong><p>Auftragsstart stellt höchstens fünf Fragen, empfiehlt die kleinste passende Form und gibt den Starttext für den nächsten Fragehelfer aus. Wenn dein Assistent den nächsten Schritt direkt übernehmen kann, darf WEITER nur den nächsten Fragehelfer mit den bereits geklärten Antworten starten - nie die eigentliche Arbeit.</p></div>
+<div class="note"><strong>Schnellster Weg: Auftragsstart</strong><p>Auftragsstart stellt höchstens fünf Fragen, empfiehlt die kleinste passende Form und gibt den Starttext für den nächsten Fragehelfer aus. Wenn dein Assistent den nächsten Schritt direkt übernehmen kann, darf NÄCHSTER SCHRITT nur den nächsten Fragehelfer mit den bereits geklärten Antworten starten - nie die eigentliche Arbeit.</p></div>
 <div class="cards">
 <div class="card"><strong>Einfacher Auftrag</strong>Für sehr kleine direkte Bitten ohne besondere Struktur, Risiken oder Wirkung nach außen.</div>
 <div class="card"><strong>Zielauftrag</strong>Für ein einzelnes klares Ergebnis mit Grenzen, Rückfragen und Prüfung.</div>
@@ -347,7 +348,7 @@ Bitte erstelle noch keinen Zielauftrag, keine Arbeitsrunde, keine feste Arbeitsw
 Deine Aufgabe ist zuerst nur, meinen Wunsch zu verstehen und den passenden nächsten Fragehelfer zu wählen.
 
 Wichtig zur Sicherheit:
-Die entstehenden Aufträge, Arbeitsrunden, festen Arbeitsweisen oder Ablaufpläne sind nur Text. Sie erzwingen technisch keine Stopps oder Freigaben.
+Die entstehenden Aufträge, Arbeitsrunden, festen Arbeitsweisen oder Ablaufpläne sind nur Text. Sie sehen Stopps und Freigaben vor, setzen sie aber technisch nicht durch.
 Stoppe vor privaten Daten, Zugangsdaten, Kosten, Senden, Veröffentlichen, Löschen, Änderungen an geteilten Daten oder anderen Wirkungen nach außen.
 
 Stelle mir zuerst die nötigen Rückfragen.
@@ -372,7 +373,7 @@ Erst nachdem ich geantwortet habe:
 3. Sage, was gerade nicht nötig ist.
 4. Gib den Starttext für den passenden nächsten Fragehelfer aus.
 5. Gib die bereits geklärten Antworten als Übergabe aus, damit der nächste Fragehelfer sie nicht erneut abfragt.
-6. Biete WEITER nur an, um genau diesen nächsten Fragehelfer mit der Übergabe zu starten. WEITER darf nie die eigentliche Aufgabe ausführen.
+6. Biete NÄCHSTER SCHRITT nur an, um genau diesen nächsten Fragehelfer mit der Übergabe zu starten. NÄCHSTER SCHRITT darf nie die eigentliche Aufgabe ausführen.
 
 Mein Wunsch:
 ...</pre></div>
@@ -1396,7 +1397,7 @@ Kläre besonders:
 Meine Aufgabe:
 ...</pre></div>
 <p class="source-label"><strong>Problem</strong></p>
-<p>KI-Assistenten wissen nur das, was ihnen beim Training beigebracht wurde - alles danach kennen sie nicht. Das Tückische: Statt zuzugeben, dass sie veraltet sind, antworten sie oft selbstbewusst mit altem Wissen. Frag man nach dem neuesten KI-Modell, dem aktuellen Preis einer Software oder einer Version von letzter Woche, bekommt man leicht eine Antwort, die letztes Jahr stimmte. Dieser Skill soll genau das verhindern: Er zwingt den Assistenten, bei aktuellen Themen wirklich nachzuschlagen statt zu raten.</p>
+<p>KI-Assistenten wissen nur das, was ihnen beim Training beigebracht wurde - alles danach kennen sie nicht. Das Tückische: Statt zuzugeben, dass sie veraltet sind, antworten sie oft selbstbewusst mit altem Wissen. Frag man nach dem neuesten KI-Modell, dem aktuellen Preis einer Software oder einer Version von letzter Woche, bekommt man leicht eine Antwort, die letztes Jahr stimmte. Dieser Helfer soll genau das verhindern: Er fordert den Assistenten auf, bei aktuellen Themen wirklich nachzuschlagen statt zu raten.</p>
 <p class="source-label"><strong>Was es tut</strong></p>
 <p>Der Skill ist eine feste Anweisung an den KI-Assistenten: Sobald eine Frage etwas Schnelllebiges betrifft (neue Software-Versionen, Preise, Nachrichten, neue KI-Modelle), soll er nicht aus dem Gedächtnis antworten, sondern eine echte Such-Schnittstelle anrufen - im Beispiel ist das die Perplexity-API, ein Dienst, der live im Netz sucht. Dann gilt eine klare Regel: Wenn das Suchergebnis dem Trainingswissen widerspricht, gewinnt das Suchergebnis. Außerdem muss der Assistent in seiner Antwort das Datum und die Originalquelle nennen, damit man nachprüfen kann, woher die Information stammt. Optional kann man das so fest einbauen ("Hook"), dass jede Web-Suche automatisch über diesen Dienst läuft.</p>
 <p class="source-label"><strong>Wann einrichten</strong></p>
@@ -1784,7 +1785,7 @@ Meine Aufgabe:
 <p class="source-label"><strong>Was du brauchst</strong></p>
 <p>Du brauchst 5 bis 10 echte Schreibproben von dir - das ist die Hauptzutat. Zusätzlich zu den Schreibproben brauchst du praktisch auch eine KI-Umgebung, in die die KI eine Skill-Datei abspeichern darf (also Schreibzugriff auf das Verzeichnis, aus dem dein KI-Werkzeug Skills lädt - das haben Tools wie Claude Code, Codex oder Cursor). In einer reinen Chat-Oberfläche im Browser, die keine Dateien ablegen kann, lässt sich der Skill nicht dauerhaft installieren. Zusätzliche API-Schlüssel oder externe Dienste sind nicht nötig - es ist ein reiner Text-Skill.</p>
 <p class="source-label"><strong>Was schiefgehen kann</strong></p>
-<p>Der Skill zwingt deine Stimme in vier feste Schubladen (direkt, warm, analytisch, geschäftlich). Wenn du in Wirklichkeit nur einen Stil hast - etwa nur formelle Mails - erfindet die KI womöglich eine "warme" Tonlage, die es bei dir gar nicht gibt. Auch bei zu wenigen oder zu ähnlichen Proben wird das Stimmbild dünn und ungenau. Weiteres Problem: Deine Stimme ändert sich mit der Zeit, aber der Skill hat keinen eingebauten Weg, sich nachzujustieren - du musst ihn selbst von Hand mit neuen Proben aktualisieren. Und es gibt keine klare Messlatte, wann er "gut genug" ist - das "benote die Testtexte" ist reine Bauchentscheidung. Plane vor regelmäßiger Nutzung einen echten Test mit eigenen Schreibproben ein.</p>
+<p>Der Helfer ordnet deine Stimme in vier feste Schubladen (direkt, warm, analytisch, geschäftlich). Wenn du in Wirklichkeit nur einen Stil hast - etwa nur formelle Mails - erfindet die KI womöglich eine "warme" Tonlage, die es bei dir gar nicht gibt. Auch bei zu wenigen oder zu ähnlichen Proben wird das Stimmbild dünn und ungenau. Weiteres Problem: Deine Stimme ändert sich mit der Zeit, aber der Skill hat keinen eingebauten Weg, sich nachzujustieren - du musst ihn selbst von Hand mit neuen Proben aktualisieren. Und es gibt keine klare Messlatte, wann er "gut genug" ist - das "benote die Testtexte" ist reine Bauchentscheidung. Plane vor regelmäßiger Nutzung einen echten Test mit eigenen Schreibproben ein.</p>
 <p class="source-label"><strong>Ist das für mich?</strong></p>
 <p>Lohnt sich für Vielschreiber - Leute, die regelmäßig publizieren oder viele Mails senden und einen wiedererkennbaren eigenen Stil haben. Weniger sinnvoll, wenn du kaum schreibst, deine Texte ohnehin sehr formelhaft sind oder du gar keinen ausgeprägten eigenen Ton hast. Zur praktischen Bindung: Der Skill funktioniert nur in einem KI-Werkzeug, das Skills als Dateien lädt und speichern darf (z. B. Claude Code, Codex, Cursor). In einer reinen Chat-App ohne Dateizugriff geht es nicht. Die Inhalte selbst sind aber portabel - es ist nur Text, den du im Prinzip auch woanders von Hand einbauen könntest.</p>
 <p class="toplink"><a href="#oben">Zurück nach oben</a> · 
@@ -2239,7 +2240,7 @@ Meine Aufgabe:
 <p class="source-label"><strong>Problem</strong></p>
 <p>Wenn ein KI-Agent deine App testet, lernt er dabei viel: welches Test-Konto funktioniert, welche Seite man wie aufruft, welcher Klick harmlos ist und welcher Daten löscht. Sobald die Sitzung endet, ist dieses Wissen weg. Die nächste Sitzung fängt bei null an und entdeckt alles mühsam neu. Das kostet Zeit und führt zu Fehlern, etwa wenn jemand versehentlich eine zerstörerische Aktion erneut auslöst.</p>
 <p class="source-label"><strong>Was es tut</strong></p>
-<p>Der Skill erzwingt eine einfache Regel: Jedes Mal, wenn der Agent etwas testet oder prüft, schreibt er das Gelernte in eine feste Datei im Projektordner (vorgeschlagen wird docs/testing-runbook.md). Dieses "Runbook" (eine Art Kochbuch fürs Testen) hält pro Funktion fest: wie man sie testet, welche Aktionen sicher und welche gefährlich sind, welche Vorbereitungen und Testdaten nötig sind, wie man hinterher aufräumt und welche genauen Prüf-Befehle man ausführt. Vor jedem Test schaut der Agent zuerst ins Runbook und folgt einem schon vorhandenen Rezept. Stimmt die Realität nicht mehr mit dem Eintrag überein, korrigiert er ihn sofort. Notizen entstehen laufend, nicht erst am Ende.</p>
+<p>Der Helfer sieht eine einfache Regel vor: Jedes Mal, wenn der Agent etwas testet oder prüft, schreibt er das Gelernte in eine feste Datei im Projektordner (vorgeschlagen wird docs/testing-runbook.md). Dieses "Runbook" (eine Art Kochbuch fürs Testen) hält pro Funktion fest: wie man sie testet, welche Aktionen sicher und welche gefährlich sind, welche Vorbereitungen und Testdaten nötig sind, wie man hinterher aufräumt und welche genauen Prüf-Befehle man ausführt. Vor jedem Test schaut der Agent zuerst ins Runbook und folgt einem schon vorhandenen Rezept. Stimmt die Realität nicht mehr mit dem Eintrag überein, korrigiert er ihn sofort. Notizen entstehen laufend, nicht erst am Ende.</p>
 <p class="source-label"><strong>Wann einrichten</strong></p>
 <p>Es lohnt sich, sobald du denselben Code wiederholt mit einem Agenten testest, statt nur einmalig. Je öfter neue Sitzungen dieselbe App anfassen, desto mehr zahlt sich das aus, weil sich das Wissen über die Zeit aufbaut: Sitzung zwanzig erbt alles, was die Sitzungen eins bis neunzehn gelernt haben. Für ein Wegwerf-Skript oder einen einmaligen Schnellcheck ist es übertrieben.</p>
 <p class="source-label"><strong>Wie einrichten</strong></p>
@@ -2611,7 +2612,7 @@ Kläre besonders:
 Meine Aufgabe:
 ...</pre></div>
 <p class="source-label"><strong>Problem</strong></p>
-<p>Wenn man etwas baut, bei dem eine KI selbständig Aufgaben erledigt (zum Beispiel ein internes Tool oder eine clevere Automatisierung), läuft im Test oft alles gut, aber im echten Betrieb geht es schief. Die Fehler stecken nicht in der KI selbst, sondern im "Drumherum": Niemand wurde um Erlaubnis gefragt, bevor etwas Gefährliches passierte, nach einem Absturz war alles weg, oder keiner konnte nachvollziehen, was die KI eigentlich getan hat. Genau diese unbequemen Fragen werden beim Bauen gern übersprungen. Dieser Skill zwingt dich, sie vorher zu klären.</p>
+<p>Wenn man etwas baut, bei dem eine KI selbständig Aufgaben erledigt (zum Beispiel ein internes Tool oder eine clevere Automatisierung), läuft im Test oft alles gut, aber im echten Betrieb geht es schief. Die Fehler stecken nicht in der KI selbst, sondern im "Drumherum": Niemand wurde um Erlaubnis gefragt, bevor etwas Gefährliches passierte, nach einem Absturz war alles weg, oder keiner konnte nachvollziehen, was die KI eigentlich getan hat. Genau diese unbequemen Fragen werden beim Bauen gern übersprungen. Dieser Helfer fordert dich auf, sie vorher zu klären.</p>
 <p class="source-label"><strong>Was es tut</strong></p>
 <p>Der Skill ist eine Art geführtes Beratungsgespräch für deinen KI-Assistenten. Wenn du ein KI-System planst oder ein bestehendes prüfst, geht er mit dir eine feste Liste von Fragen durch, immer in derselben Reihenfolge: Welche Werkzeuge darf die KI benutzen und mit welchen genauen Spielregeln? Was darf sie allein tun, wofür braucht sie deine Freigabe, was ist verboten? Was bleibt erhalten, wenn das System abstürzt? Was darf die KI sich merken und was auf keinen Fall? Woran erkennst du konkret, dass es funktioniert? Und kannst du live mitverfolgen, was sie tut? Am Ende liefert er ein Designdokument mit Entscheidungen plus einen Plan in Etappen, wobei jede Etappe für sich allein lauffähig und testbar ist.</p>
 <p class="source-label"><strong>Wann einrichten</strong></p>
