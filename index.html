@@ -152,7 +152,6 @@
 <a href="#detail-helfer">Details: einzelne Helfer</a>
 <a href="#detail-ablaufplaene">Details: Ablaufpläne</a></div></nav>
 <main>
-<section id="pflegehinweis" class="note"><h2>Pflegehinweis</h2><p>Diese Komplettfassung ist ein automatisch erzeugtes Gesamtpaket aus Hauptfassung und Detailfassungen. Inhaltliche Änderungen bitte in der Generator-Quelle pflegen und die Datei danach neu erzeugen, damit HTML, PDF und Detailseiten nicht auseinanderlaufen.</p></section>
 <section id="einstieg">
 <h2>1. Worum es geht</h2>
 <p>Diese Anleitung richtet sich an Menschen, die mit digitalen Helfern verlässlich arbeiten möchten, ohne sich vorher in Fachsprache einarbeiten zu müssen.</p>
@@ -168,11 +167,17 @@
 <section id="begriffe">
 <h2>2. Begriffe ohne Rätselraten</h2>
 <p>Die folgenden deutschen Begriffe werden in dieser Anleitung verwendet. Beim ersten Auftreten steht der gängige englische Begriff in Klammern, damit spätere Texte leichter wiederzuerkennen sind.</p>
+<p>Wichtig: Auftragsstart ist der Einstieg. Danach gibt es fünf mögliche Formen: einfacher Auftrag, Zielauftrag, Arbeitsrunde, feste Arbeitsweise oder Ablaufplan.</p>
 <table><thead><tr>
 <th>Deutscher Begriff</th>
 <th>Gemeint ist</th>
 <th>Alltagsbild</th>
 </tr></thead><tbody>
+<tr>
+<td>Auftragsstart</td>
+<td>Der einfache Einstieg, wenn du noch nicht weißt, welche Form passt. Er fragt kurz nach und empfiehlt die kleinste passende Form.</td>
+<td>Wie eine Anmeldung am Empfang: erst sortieren, dann zur richtigen Stelle gehen.</td>
+</tr>
 <tr>
 <td>Einfacher Auftrag</td>
 <td>Eine kleine direkte Bitte ohne besondere Struktur, ohne heikle Daten und ohne Wirkung nach außen.</td>
@@ -197,6 +202,11 @@
 <td>Ablaufplan (runbook)</td>
 <td>Ein kontrollierter Plan für mehrere Schritte mit Übergaben und Freigaben.</td>
 <td>Wie ein Einsatzplan.</td>
+</tr>
+<tr>
+<td>Geschützter Ablauf</td>
+<td>Ein Ablaufplan, der mit einem zusätzlichen Wächter Schritt für Schritt durchlaufen wird. Vor heiklen Schritten hält er an und verlangt ein klares Ja.</td>
+<td>Wie eine Schranke, die wirklich unten bleibt, bis jemand bewusst öffnet.</td>
 </tr>
 <tr>
 <td>Fragehelfer (generator)</td>
@@ -337,7 +347,7 @@
 <li>Soll der Assistent nur in kurzen, überprüften Runden arbeiten? Dann passt eine Arbeitsrunde.</li>
 <li>Kommt dieselbe Art Aufgabe wieder? Dann kann eine feste Arbeitsweise sinnvoll sein.</li>
 <li>Gibt es mehrere Schritte, Übergaben oder Freigaben? Dann ist ein Ablaufplan passend.</li>
-<li>Hat ein Schritt Wirkung nach außen, etwa Senden, Veröffentlichen, Löschen oder Kalendereintrag? Dann braucht es eine ausdrückliche Freigabe.</li>
+<li>Hat ein Schritt Wirkung nach außen, etwa Senden, Veröffentlichen, Löschen oder Kalendereintrag? Im normalen Chat prüfst du die Freigabe selbst; im geschützten Ablauf hält der Ablauf davor an.</li>
 </ul>
 </div></details>
 <div class="box prompt-box copy-block"><div class="copy-head"><strong>Starttext für Auftragsstart</strong><button type="button" class="copy-button" data-copy-button data-label="Kopieren">Kopieren</button></div><p class="copy-hint">Über den öffentlichen Link funktioniert Kopieren am zuverlässigsten. Beim lokalen Öffnen kann dein Browser nachfragen oder es blockieren.</p><pre>Hilf mir bitte, aus meinem Wunsch die passende Auftragsform zu machen.
@@ -453,8 +463,8 @@ Meine wiederkehrende Aufgabe:
 <section id="ablaufplan">
 <h2>7. Ablaufplan erstellen</h2>
 <p>Ein Ablaufplan ist für größere Vorhaben gedacht, bei denen mehrere Schritte in der richtigen Reihenfolge passieren müssen.</p>
-<p>Er legt fest, welcher Schritt was liest, was er weitergibt, wann ein Mensch freigeben muss und was passiert, wenn etwas nur teilweise klappt oder gestoppt werden muss.</p>
-<p>Der Helfer zum Erstellen eines Ablaufplans führt den Ablauf nicht aus. Er erstellt nur den Plan: Stationen, Übergaben, Freigaben, Prüfungen und Stopps. Erst wenn du diesen Plan anschließend einem geeigneten Assistenten gibst und ausdrücklich startest, wird der Ablauf Schritt für Schritt bearbeitet.</p>
+<p>Er legt fest, welcher Schritt was liest, was er weitergibt, wo ein Mensch bewusst entscheiden muss und was passiert, wenn etwas nur teilweise klappt oder gestoppt werden muss.</p>
+<p>Der Helfer zum Erstellen eines Ablaufplans führt den Ablauf nicht aus. Er erstellt nur den Plan: Stationen, Übergaben, Freigaben, Prüfungen und Stopps. Im normalen Chat musst du diese Stopps selbst beachten. In einem geschützten Ablauf kann der Plan Schritt für Schritt durchlaufen und vor heiklen Aktionen wirklich angehalten werden.</p>
 <ul>
 <li>Welches Ergebnis soll am Ende vorliegen?</li>
 <li>Welche Schritte sind nötig?</li>
@@ -464,7 +474,7 @@ Meine wiederkehrende Aufgabe:
 <li>Welche Schritte haben echte Außenwirkung?</li>
 <li>Welche Meldungen kann der Assistent geben, und was sollst du dann tun? Die nächste Tabelle erklärt die wichtigsten Fälle.</li>
 </ul>
-<div class="note"><strong>Wichtig</strong><p>Jeder Schritt mit echter Außenwirkung muss ausdrücklich so markiert werden. Beispiele sind Senden, Veröffentlichen, Löschen, Zusammenführen, Kalendereintrag, Zahlung oder Änderung geteilter Daten.</p></div>
+<div class="note"><strong>Wichtig</strong><p>Jeder Schritt mit echter Außenwirkung muss ausdrücklich so markiert werden. Beispiele sind Senden, Veröffentlichen, Löschen, Zusammenführen, Kalendereintrag, Zahlung oder Änderung geteilter Daten. Im normalen Chat ist das dein Warnschild; im geschützten Ablauf ist es der Punkt, an dem wirklich angehalten wird.</p></div>
 <h3>Beispiel: Sprachnotiz zur veröffentlichten Notiz</h3>
 <p>Du musst am Anfang keine perfekte Formulierung liefern. Schreibe deinen Wunsch ruhig unvollständig auf. Der Assistent stellt Rückfragen und macht daraus anschließend eine klare Fassung.</p>
 <div class="box"><strong>Eingabe des Nutzers</strong>Mach aus meiner Sprachnotiz eine fertige Seite.</div>
@@ -497,7 +507,9 @@ Mein Vorhaben:
 <p>Wenn eine heikle Angabe gebraucht wird, wird nur die Herkunft oder ein Platzhalter genannt. Zum Beispiel: benötigter Zugang ist vorhanden, aber der Wert steht nicht im Dokument.</p>
 <p>Heikel ist nicht nur das Ausschreiben, sondern auch das Weitergeben. Manche Helfer schicken Inhalte an fremde Dienste, etwa Aufnahmen an einen Dienst zum Verschriftlichen, Texte an eine Suche oder Bilder an einen Bilddienst. Prüfe vorher, ob diese Inhalte das dürfen: Bei Namen, Kundendaten, vertraulichen Unterlagen oder persönlichen Angaben gelten Datenschutzregeln, und einmal hochgeladene Inhalte sind nicht ohne Weiteres zurückholbar.</p>
 <p>Wenn ein Helfer externe Dienste nutzt, können außerdem Kosten entstehen. Kläre vor einem echten Einsatz, welches Konto genutzt wird, ob Gebühren anfallen können und wer vor kostenpflichtigen Schritten ausdrücklich Ja sagen muss.</p>
+<p>Ein normaler Chat kann Regeln befolgen, hält aber nicht selbst eine echte Schranke fest. Deshalb prüfst du dort Freigaben selbst. Ein geschützter Ablauf ist strenger: Er läuft einen Ablaufplan Schritt für Schritt durch und hält vor heiklen Aktionen an, bis ausdrücklich Ja gesagt wurde.</p>
 <p>Die folgende Tabelle beschreibt Meldungen, die vom Assistenten kommen können, wenn er mit einem Zielauftrag, einer festen Arbeitsweise oder einem Ablaufplan arbeitet. Sie sagt dir nicht nur, was die Meldung bedeutet, sondern auch, was du als Nächstes tun solltest.</p>
+<div class="note"><strong>Wann brauche ich einen geschützten Ablauf?</strong><p>Wenn ein Ablauf senden, veröffentlichen, löschen, bezahlen, zusammenführen oder geteilte Daten ändern könnte. Für reine Textentwürfe reicht meist ein normaler Chat; dort bist du selbst die Freigabe-Schranke. Ein geschützter Ablauf ist kein Button in dieser HTML, sondern ein separater Wächter aus dem Generator-Paket, der bei Bedarf eingerichtet werden muss.</p></div>
 <table><thead><tr>
 <th>Meldung des Assistenten</th>
 <th>Was das heißt</th>
@@ -545,7 +557,8 @@ Mein Vorhaben:
 <li>Nur notwendige Angaben weitergeben.</li>
 <li>Private Inhalte durch neutrale Beispiele ersetzen.</li>
 <li>Zugangsdaten nie ausschreiben.</li>
-<li>Vor jeder Außenwirkung eine ausdrückliche Freigabe einholen.</li>
+<li>Im normalen Chat vor jeder Außenwirkung selbst eine ausdrückliche Freigabe prüfen.</li>
+<li>Bei Ablaufplänen mit echten Folgen möglichst einen geschützten Ablauf nutzen.</li>
 <li>Bei Unsicherheit stoppen und nachfragen.</li>
 </ul>
 <p class="toplink"><a href="#oben">Zurück nach oben</a></p>
@@ -790,6 +803,7 @@ Testaufgabe:
 <section id="helferliste">
 <h2>12. Übersicht der 31 einzelnen Helfer</h2>
 <p>Die einzelnen Helfer sind nach Alltagssituationen geordnet. Öffne eine Gruppe, wenn sie zu deiner Situation passt. Jeder Helfer ist gekennzeichnet, ob er direkt im Chat läuft, eine Einrichtung braucht oder Kosten verursachen kann. Genaue Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<p>Wenn ein Helfer vor Senden, Veröffentlichen, Löschen, Kosten oder Änderungen warnt, ist das im normalen Chat deine bewusste Prüfstelle. Nur ein geschützter Ablauf hält an solchen Punkten wirklich an.</p>
 <div class="badge-legend"><strong>Kennzeichnungen</strong>
 <div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
 <div class="legend-item"><span class="badge badge--setup">Braucht Einrichtung</span><p>funktioniert erst mit einem Werkzeug, das zum Beispiel Dateien lesen oder schreiben, Programme ausführen oder externe Zugänge nutzen darf.</p></div>
@@ -1140,6 +1154,7 @@ Testaufgabe:
 <section id="ablaufkarten">
 <h2>13. Übersicht der 7 größeren Ablaufpläne</h2>
 <p>Die folgenden größeren Abläufe verbinden mehrere einzelne Helfer. Auch hier zeigen die Kennzeichnungen, ob vorher Einrichtung oder mögliche Kosten zu beachten sind. Die Übersicht nennt Zweck, grobe Stationen und den wichtigsten Freigabepunkt; Voraussetzungen, Risiken und Einrichtung stehen in der Detailfassung.</p>
+<p>Die Freigabe-Hinweise bedeuten: Im normalen Chat prüfst du selbst, ob weitergemacht werden darf. In einem geschützten Ablauf kann genau an solchen Punkten wirklich angehalten werden.</p>
 <div class="badge-legend"><strong>Kennzeichnungen</strong>
 <div class="legend-item"><span class="badge badge--chat">Direkt im Chat nutzbar</span><p>läuft sofort in ChatGPT, Claude, Gemini, Copilot oder einem ähnlichen Chat, ohne zusätzliche Einrichtung.</p></div>
 <div class="legend-item"><span class="badge badge--setup">Braucht Einrichtung</span><p>funktioniert erst mit einem Werkzeug, das zum Beispiel Dateien lesen oder schreiben, Programme ausführen oder externe Zugänge nutzen darf.</p></div>
@@ -1277,6 +1292,7 @@ Testaufgabe:
 <h3>Kann ich das an verschiedenen Orten nutzen?</h3><p>Zielaufträge, Vorlagen und Erklärungen sind als Text gut übertragbar. Einige einzelne Helfer brauchen zusätzlich bestimmte Zugänge, Programme oder Ablageorte; das steht jeweils in der Detailfassung.</p>
 <h3>Ist das redundant zu eingebauten Skill-Buildern?</h3><p>Nein. Die eingebauten Baukästen speichern oder strukturieren den Helfer innerhalb einer Plattform. Diese Anleitung liefert dafür den geprüften Inhalt: Zweck, Starttext, Grenzen, Freigaben und Prüfschritte.</p>
 <h3>Sind die Vorlagen automatisch sicher?</h3><p>Nein. Sie machen Grenzen sichtbar. Wirklich angehalten wird entweder durch dich im Chat oder, bei Ablaufplänen, durch einen geschützten Ablauf, der vor heiklen Schritten ein klares Ja verlangt.</p>
+<h3>Wo bekomme ich einen geschützten Ablauf?</h3><p>Er ist kein normaler Chat-Button und nicht in dieser HTML eingebaut. Er gehört zum Generator-Paket und muss für heikle Ablaufpläne separat eingerichtet werden. Wenn du nur diese Anleitung nutzt, prüfst du Freigaben selbst im Chat.</p>
 <h3>Was ist der häufigste Fehler?</h3><p>Zu früh eine große Struktur bauen. Viele Wünsche brauchen nur einen guten Zielauftrag.</p>
 <h3>Was bedeutet eine Freigabe?</h3><p>Ein Mensch entscheidet bewusst, ob ein Schritt weitergehen darf. Besonders wichtig ist das vor Senden, Veröffentlichen, Löschen, Bezahlen oder Ändern geteilter Daten.</p>
 <h3>Was mache ich, wenn mir Angaben fehlen?</h3><p>Nicht raten. Nachfragen oder den Auftrag so begrenzen, dass ohne diese Angabe sicher gearbeitet werden kann.</p>
